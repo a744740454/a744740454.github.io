@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://a744740454.github.io/artitalk/index.html</loc>
+    <loc>https://a744740454.github.io/about/index.html</loc>
     
     <lastmod>2021-01-15</lastmod>
     
@@ -179,20 +179,6 @@
   </url>
   
   <url>
-    <loc>https://a744740454.github.io/tags/openpyxl/</loc>
-    <lastmod>2021-01-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://a744740454.github.io/tags/excel/</loc>
-    <lastmod>2021-01-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://a744740454.github.io/tags/scrapy/</loc>
     <lastmod>2021-01-15</lastmod>
     <changefreq>daily</changefreq>
@@ -200,14 +186,14 @@
   </url>
   
   <url>
-    <loc>https://a744740454.github.io/tags/requests%E6%A8%A1%E5%9D%97/</loc>
+    <loc>https://a744740454.github.io/tags/selenium/</loc>
     <lastmod>2021-01-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://a744740454.github.io/tags/selenium/</loc>
+    <loc>https://a744740454.github.io/tags/requests%E6%A8%A1%E5%9D%97/</loc>
     <lastmod>2021-01-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -229,6 +215,20 @@
   
   <url>
     <loc>https://a744740454.github.io/tags/%E4%BB%A3%E7%90%86/</loc>
+    <lastmod>2021-01-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://a744740454.github.io/tags/openpyxl/</loc>
+    <lastmod>2021-01-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://a744740454.github.io/tags/excel/</loc>
     <lastmod>2021-01-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
