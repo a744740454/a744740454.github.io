@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://a744740454.github.io/2021/01/20/gitpython/gitpython/</loc>
+    <loc>https://a744740454.github.io/2021/01/20/python%E6%A8%A1%E5%9D%97/gitpython/gitpython/</loc>
     
     <lastmod>2021-01-20</lastmod>
     
@@ -327,6 +327,13 @@
   
   <url>
     <loc>https://a744740454.github.io/tags/%E4%BB%A3%E7%90%86/</loc>
+    <lastmod>2021-01-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://a744740454.github.io/tags/python%E6%A8%A1%E5%9D%97/</loc>
     <lastmod>2021-01-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
