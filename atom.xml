@@ -6,7 +6,7 @@
   <link href="https://a744740454.github.io/atom.xml" rel="self"/>
   
   <link href="https://a744740454.github.io/"/>
-  <updated>2021-01-20T09:16:29.245Z</updated>
+  <updated>2021-01-20T11:35:35.342Z</updated>
   <id>https://a744740454.github.io/</id>
   
   <author>
@@ -17,13 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>gitpython学习</title>
+    <link href="https://a744740454.github.io/2021/01/20/gitpython/gitpython/"/>
+    <id>https://a744740454.github.io/2021/01/20/gitpython/gitpython/</id>
+    <published>2021-01-20T11:34:32.932Z</published>
+    <updated>2021-01-20T11:35:35.342Z</updated>
+    
+    
+    
+    
+    <category term="gitpython" scheme="https://a744740454.github.io/categories/gitpython/"/>
+    
+    
+    <category term="自动化" scheme="https://a744740454.github.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
+    
+    <category term="gitpython" scheme="https://a744740454.github.io/tags/gitpython/"/>
+    
+  </entry>
+  
+  <entry>
     <title>celery的高级使用</title>
     <link href="https://a744740454.github.io/2021/01/20/celery/celery%E7%9A%84%E9%AB%98%E7%BA%A7%E4%BD%BF%E7%94%A8/"/>
     <id>https://a744740454.github.io/2021/01/20/celery/celery%E7%9A%84%E9%AB%98%E7%BA%A7%E4%BD%BF%E7%94%A8/</id>
     <published>2021-01-20T09:06:53.858Z</published>
-    <updated>2021-01-20T09:16:29.245Z</updated>
+    <updated>2021-01-20T11:01:33.706Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="celery的高级使用"><a href="#celery的高级使用" class="headerlink" title="celery的高级使用"></a>celery的高级使用</h2><p>前面两篇博客主要讲的是celery的基本使用方式以及常用的目录结构。这一篇主要讲celery定时任务的使用</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">其实celery定时任务非常的简单，我们只需要在celery实例化的那个文件夹中进行一些配置即可</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> Celery</span><br><span class="line"></span><br><span class="line">broker = <span class="string">&#x27;redis://127.0.0.1:6379/1&#x27;</span></span><br><span class="line">backend = <span class="string">&#x27;redis://127.0.0.1:6379/2&#x27;</span></span><br><span class="line">app = Celery(broker=broker, backend=backend, include=[<span class="string">&#x27;celery_task.tasks&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 时区</span></span><br><span class="line">app.conf.timezone = <span class="string">&#x27;Asia/Shanghai&#x27;</span></span><br><span class="line"><span class="comment"># 是否使用UTC</span></span><br><span class="line">app.conf.enable_utc = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 任务的定时配置</span></span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> timedelta</span><br><span class="line"><span class="keyword">from</span> celery.schedules <span class="keyword">import</span> crontab</span><br><span class="line">app.conf.beat_schedule = &#123;</span><br><span class="line">    <span class="string">&#x27;low-task&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;task&#x27;</span>: <span class="string">&#x27;celery_task.tasks.low&#x27;</span>,               <span class="comment">#任务的位置</span></span><br><span class="line">        <span class="string">&#x27;schedule&#x27;</span>: timedelta(seconds=<span class="number">3</span>),              <span class="comment">#距离执行的时间，放一个时间对象</span></span><br><span class="line">        <span class="comment"># &#x27;schedule&#x27;: crontab(hour=8, day_of_week=1),  # 每周一早八点</span></span><br><span class="line">        <span class="string">&#x27;args&#x27;</span>: (<span class="number">300</span>, <span class="number">150</span>),                            <span class="comment">#任务所需的参数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>按上述方式进行配置后，我们便不需要使用delay去提交任务，而是一到执行时间celery便会自动执行</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="celery的高级使用"><a href="#celery的高级使用" class="headerlink" title="celery的高级使用"></a>celery的高级使用</h2><p>前面两篇博客主要讲的是celery的基本使用方式以及常用的目录结构。这一篇主要讲celery定时任务的使用</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">其实celery定时任务非常的简单，我们只需要在celery实例化的那个文件夹中进行一些配置即可</span><br><span class="line">然后使用下述命令启动自动提交任务的服务:</span><br><span class="line">celery beat -A celery_task -l info</span><br><span class="line"></span><br><span class="line">实例:</span><br><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> Celery</span><br><span class="line"></span><br><span class="line">broker = <span class="string">&#x27;redis://127.0.0.1:6379/1&#x27;</span></span><br><span class="line">backend = <span class="string">&#x27;redis://127.0.0.1:6379/2&#x27;</span></span><br><span class="line">app = Celery(broker=broker, backend=backend, include=[<span class="string">&#x27;celery_task.tasks&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 时区</span></span><br><span class="line">app.conf.timezone = <span class="string">&#x27;Asia/Shanghai&#x27;</span></span><br><span class="line"><span class="comment"># 是否使用UTC</span></span><br><span class="line">app.conf.enable_utc = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 任务的定时配置</span></span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> timedelta</span><br><span class="line"><span class="keyword">from</span> celery.schedules <span class="keyword">import</span> crontab</span><br><span class="line">app.conf.beat_schedule = &#123;</span><br><span class="line">    <span class="string">&#x27;low-task&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;task&#x27;</span>: <span class="string">&#x27;celery_task.tasks.low&#x27;</span>,               <span class="comment">#任务的位置</span></span><br><span class="line">        <span class="string">&#x27;schedule&#x27;</span>: timedelta(seconds=<span class="number">3</span>),              <span class="comment">#距离执行的时间，放一个时间对象</span></span><br><span class="line">        <span class="comment"># &#x27;schedule&#x27;: crontab(hour=8, day_of_week=1),  # 每周一早八点</span></span><br><span class="line">        <span class="string">&#x27;args&#x27;</span>: (<span class="number">300</span>, <span class="number">150</span>),                            <span class="comment">#任务所需的参数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>按上述方式进行配置后，我们便不需要使用delay去提交任务，而是一到执行时间celery便会自动执行</p>]]></content>
     
     
       
@@ -118,8 +137,8 @@
   
   <entry>
     <title>python项目上线</title>
-    <link href="https://a744740454.github.io/2021/01/18/%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF/%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF/"/>
-    <id>https://a744740454.github.io/2021/01/18/%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF/%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF/</id>
+    <link href="https://a744740454.github.io/2021/01/18/%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF/%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF/"/>
+    <id>https://a744740454.github.io/2021/01/18/%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF/%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF/</id>
     <published>2021-01-18T11:57:08.651Z</published>
     <updated>2021-01-18T12:39:54.099Z</updated>
     
@@ -423,9 +442,9 @@
     <category term="个人博客搭建" scheme="https://a744740454.github.io/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
     
-    <category term="butterfly" scheme="https://a744740454.github.io/tags/butterfly/"/>
-    
     <category term="hexo" scheme="https://a744740454.github.io/tags/hexo/"/>
+    
+    <category term="butterfly" scheme="https://a744740454.github.io/tags/butterfly/"/>
     
   </entry>
   
@@ -450,9 +469,9 @@
     <category term="个人博客搭建" scheme="https://a744740454.github.io/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
     
-    <category term="butterfly" scheme="https://a744740454.github.io/tags/butterfly/"/>
-    
     <category term="hexo" scheme="https://a744740454.github.io/tags/hexo/"/>
+    
+    <category term="butterfly" scheme="https://a744740454.github.io/tags/butterfly/"/>
     
   </entry>
   
@@ -502,31 +521,6 @@
     
     
     <category term="django" scheme="https://a744740454.github.io/tags/django/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>个人博客新建教程</title>
-    <link href="https://a744740454.github.io/2021/01/12/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%96%B0%E5%BB%BA%E6%95%99%E7%A8%8B/"/>
-    <id>https://a744740454.github.io/2021/01/12/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%96%B0%E5%BB%BA%E6%95%99%E7%A8%8B/</id>
-    <published>2021-01-12T11:50:43.632Z</published>
-    <updated>2021-01-18T11:33:56.954Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="个人博客搭建"><a href="#个人博客搭建" class="headerlink" title="个人博客搭建"></a>个人博客搭建</h2><p>我这次搭建个人博客使用的是hexo框架配合butterfly主题搭建完成。</p><p>在搭建博客的时候我们需要安装node.js以及git</p><h3 id="node-js安装"><a href="#node-js安装" class="headerlink" title="node.js安装"></a>node.js安装</h3><p>这是nodejs的中文官网<a href="http://nodejs.cn/">http://nodejs.cn/</a></p><p><img src="https://gitee.com/a744740454/mypic/raw/master/img/nodejs%E5%AE%89%E8%A3%85.png"></p><p>然后一路点next即可</p><p>可以通过命令行 <strong>node -v npm-v</strong>来看是否安装成功</p><h4 id="cnpm安装"><a href="#cnpm安装" class="headerlink" title="cnpm安装"></a>cnpm安装</h4><p>然后再命令行通过输入 <strong>npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></strong>安装cnpm</p><p><img src="https://gitee.com/a744740454/mypic/raw/master/img/cnpm%E5%AE%89%E8%A3%85.png"></p><h3 id="hexo安装"><a href="#hexo安装" class="headerlink" title="hexo安装"></a>hexo安装</h3><p>接下来通过cnpm安装hexo  再命令行输入<strong>cnpm install -g hexo-cli</strong></p><p><img src="https://gitee.com/a744740454/mypic/raw/master/img/hexo%E5%AE%89%E8%A3%85.png"></p><h4 id="博客初始化"><a href="#博客初始化" class="headerlink" title="博客初始化"></a>博客初始化</h4><p>再你想新建的地方建一个blog文件夹，然后命令行输入 <strong>hexo init</strong> 博客初始化</p><p>若没有安装git会报错</p><p><img src="https://gitee.com/a744740454/mypic/raw/master/img/git%E5%AE%89%E8%A3%85.png"></p><h3 id="git安装地址"><a href="#git安装地址" class="headerlink" title="git安装地址"></a>git安装地址</h3><p>这是阿里的镜像文件的所在地</p><p>​    链接:<a href="https://npm.taobao.org/mirrors/git-for-windows/">https://npm.taobao.org/mirrors/git-for-windows/</a></p><p>你也可以直接去官网安装</p><p>​    <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p><h3 id="hexo简单使用"><a href="#hexo简单使用" class="headerlink" title="hexo简单使用"></a>hexo简单使用</h3><p>当你安装好git之后你便可以使用<strong>hexo init</strong>初始化你对应的文件夹</p><p>然后使用<strong>hexo new</strong> “名称”即可创建新的博客</p><p>最后使用<strong>hexo s</strong>命令开启本地服务</p><p><img src="https://gitee.com/a744740454/mypic/raw/master/img/hexo%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%90%AF.png"></p><p>如上图所示你就可以通过<a href="http://localhoost:4000查看你刚刚搭建好的博客页面了">http://localhoost:4000查看你刚刚搭建好的博客页面了</a></p><h3 id="将你的博客部署到远程仓库"><a href="#将你的博客部署到远程仓库" class="headerlink" title="将你的博客部署到远程仓库"></a>将你的博客部署到远程仓库</h3><p>首先我们在刚刚的blog文件夹下启动cmd命令行,然后用命令安装一个插件</p><p> <strong>cnpm install –save hexo-deployer-git</strong></p><p><img src="https://gitee.com/a744740454/mypic/raw/master/img/%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6.png"></p><h4 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h4><p>然后我们去github创建一个仓库,记录下你仓库的地址</p><p><img src="https://gitee.com/a744740454/mypic/raw/master/img/SirzxF7KlkQDcHR.png" alt="SirzxF7KlkQDcHR"></p><h4 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><p>在部署到远端之前要对blog文件下的__config文件进行修改。打开该文件移动至最后</p><p>如此修改</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>: git </span><br><span class="line">repo: https://github.com/a744740454/a744740454.github.io</span><br><span class="line">branch: master </span><br></pre></td></tr></table></figure><h4 id="本地生成ssh"><a href="#本地生成ssh" class="headerlink" title="本地生成ssh"></a>本地生成ssh</h4><p>最后再终端输入</p><p><strong>ssh-keygen -t rsa -C “username”</strong> (注：username为你git上的用户名)</p><p>去生成ssh</p><p><img src="https://gitee.com/a744740454/mypic/raw/master/img/ssh%E7%94%9F%E6%88%901.png"></p><p>然后按两次回车出现下述信息代表你的ssh公钥私钥生成完毕</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Your identification has been saved <span class="keyword">in</span> /Users/username/.ssh/id_rsa.</span><br><span class="line"></span><br><span class="line">Your public key has been saved <span class="keyword">in</span> /Users/username/.ssh/id_rsa.pub.</span><br><span class="line"></span><br><span class="line">The key fingerprint <span class="keyword">is</span>:</span><br><span class="line"></span><br><span class="line"><span class="number">58</span>:<span class="number">42</span>:8b:<span class="number">58</span>:ad:4b:b5:b9:6d:<span class="number">79</span>:bf:8c:f9:e2:2b:ed username</span><br><span class="line"></span><br><span class="line">The key<span class="string">&#x27;s randomart image is:</span></span><br></pre></td></tr></table></figure><p>根据上述信息提示我们的私钥存储位置在如下文件夹中：/Users/username/.ssh/id_rsa</p><p>我们在cmd中使用cd命令进入/Users/用户名/.ssh/</p><p>在命令行中输入<strong>type id_rsa.pub</strong>命令</p><p>就会出现密钥，然后全部复制</p><h4 id="github配置公钥"><a href="#github配置公钥" class="headerlink" title="github配置公钥"></a>github配置公钥</h4><p>之后在github添加SSH Key,在任意界面右上角，点击你的头像，选择<strong>Settings-&gt; SSH keys-&gt;New SSH key</strong> 添加</p><p>最后回到blog文件夹下面，<strong>hexo d</strong> 即可推到远端的github上面</p><p>最后我们使用h<strong>username.github.io</strong>即可以访问你的个人博客了</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;个人博客搭建&quot;&gt;&lt;a href=&quot;#个人博客搭建&quot; class=&quot;headerlink&quot; title=&quot;个人博客搭建&quot;&gt;&lt;/a&gt;个人博客搭建&lt;/h2&gt;&lt;p&gt;我这次搭建个人博客使用的是hexo框架配合butterfly主题搭建完成。&lt;/p&gt;
-&lt;p&gt;在搭建博客的时候我</summary>
-      
-    
-    
-    
-    <category term="个人博客搭建" scheme="https://a744740454.github.io/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="hexo" scheme="https://a744740454.github.io/tags/hexo/"/>
     
   </entry>
   
