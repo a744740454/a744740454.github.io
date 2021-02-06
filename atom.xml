@@ -6,7 +6,7 @@
   <link href="https://a744740454.github.io/atom.xml" rel="self"/>
   
   <link href="https://a744740454.github.io/"/>
-  <updated>2021-02-02T01:02:42.077Z</updated>
+  <updated>2021-02-05T06:25:06.649Z</updated>
   <id>https://a744740454.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>celery在linux的后台运行</title>
+    <link href="https://a744740454.github.io/2021/02/05/celery/celery%E5%9C%A8linux%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C/"/>
+    <id>https://a744740454.github.io/2021/02/05/celery/celery%E5%9C%A8linux%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C/</id>
+    <published>2021-02-05T06:05:55.775Z</published>
+    <updated>2021-02-05T06:25:06.649Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="celery部署到服务器上"><a href="#celery部署到服务器上" class="headerlink" title="celery部署到服务器上"></a>celery部署到服务器上</h2><p>当我们写了一个celery的定时任务之后，我们需要将其放到我们服务器上并让其在后台执行。</p><p>我本来是直接部署到服务器上，然后执行了两句命令，但是没想到确失败了。经过一番资料的查找，我发现需要用到两个命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&amp;      -- 这个符号可以让你的程序在后台运行</span><br><span class="line">nohup  -- 这个命令可以让你的程序在你退出ssh链接之后不被杀死</span><br><span class="line">eg:</span><br><span class="line">nohup .&#x2F;start-dishi.sh &gt;output 2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line">解释：</span><br><span class="line"> 1. &amp;符号的含义</span><br><span class="line"> 带&amp;的命令行，即使terminal（终端）关闭，或者电脑死机程序依然运行（前提是你把程序递交到服务器上)； </span><br><span class="line"> 2. 2&gt;&amp;1的意思 </span><br><span class="line">　　这个意思是把标准错误（2）重定向到标准输出中（1），而标准输出又导入文件output里面，所以结果是标准错误和标准输出都导入文件output里面了。 至于为什么需要将标准错误重定向到标准输出的原因，那就归结为标准错误没有缓冲区，而stdout有。这就会导致 &gt;output 2&gt;output 文件output被两次打开，而stdout和stderr将会竞争覆盖，这肯定不是我门想要的. </span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;celery部署到服务器上&quot;&gt;&lt;a href=&quot;#celery部署到服务器上&quot; class=&quot;headerlink&quot; title=&quot;celery部署到服务器上&quot;&gt;&lt;/a&gt;celery部署到服务器上&lt;/h2&gt;&lt;p&gt;当我们写了一个celery的定时任务之后，我们需要将</summary>
+      
+    
+    
+    
+    <category term="celery" scheme="https://a744740454.github.io/categories/celery/"/>
+    
+    
+    <category term="celery,linux" scheme="https://a744740454.github.io/tags/celery-linux/"/>
+    
+  </entry>
   
   <entry>
     <title>五险一金相关</title>
@@ -68,9 +92,9 @@
     <link href="https://a744740454.github.io/2021/01/20/celery/celery%E7%9A%84%E9%AB%98%E7%BA%A7%E4%BD%BF%E7%94%A8/"/>
     <id>https://a744740454.github.io/2021/01/20/celery/celery%E7%9A%84%E9%AB%98%E7%BA%A7%E4%BD%BF%E7%94%A8/</id>
     <published>2021-01-20T09:06:53.858Z</published>
-    <updated>2021-01-20T11:01:33.706Z</updated>
+    <updated>2021-02-05T05:18:53.716Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="celery的高级使用"><a href="#celery的高级使用" class="headerlink" title="celery的高级使用"></a>celery的高级使用</h2><p>前面两篇博客主要讲的是celery的基本使用方式以及常用的目录结构。这一篇主要讲celery定时任务的使用</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">其实celery定时任务非常的简单，我们只需要在celery实例化的那个文件夹中进行一些配置即可</span><br><span class="line">然后使用下述命令启动自动提交任务的服务:</span><br><span class="line">celery beat -A celery_task -l info</span><br><span class="line"></span><br><span class="line">实例:</span><br><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> Celery</span><br><span class="line"></span><br><span class="line">broker = <span class="string">&#x27;redis://127.0.0.1:6379/1&#x27;</span></span><br><span class="line">backend = <span class="string">&#x27;redis://127.0.0.1:6379/2&#x27;</span></span><br><span class="line">app = Celery(broker=broker, backend=backend, include=[<span class="string">&#x27;celery_task.tasks&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 时区</span></span><br><span class="line">app.conf.timezone = <span class="string">&#x27;Asia/Shanghai&#x27;</span></span><br><span class="line"><span class="comment"># 是否使用UTC</span></span><br><span class="line">app.conf.enable_utc = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 任务的定时配置</span></span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> timedelta</span><br><span class="line"><span class="keyword">from</span> celery.schedules <span class="keyword">import</span> crontab</span><br><span class="line">app.conf.beat_schedule = &#123;</span><br><span class="line">    <span class="string">&#x27;low-task&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;task&#x27;</span>: <span class="string">&#x27;celery_task.tasks.low&#x27;</span>,               <span class="comment">#任务的位置</span></span><br><span class="line">        <span class="string">&#x27;schedule&#x27;</span>: timedelta(seconds=<span class="number">3</span>),              <span class="comment">#距离执行的时间，放一个时间对象</span></span><br><span class="line">        <span class="comment"># &#x27;schedule&#x27;: crontab(hour=8, day_of_week=1),  # 每周一早八点</span></span><br><span class="line">        <span class="string">&#x27;args&#x27;</span>: (<span class="number">300</span>, <span class="number">150</span>),                            <span class="comment">#任务所需的参数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>按上述方式进行配置后，我们便不需要使用delay去提交任务，而是一到执行时间celery便会自动执行</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="celery的高级使用"><a href="#celery的高级使用" class="headerlink" title="celery的高级使用"></a>celery的高级使用</h2><p>前面两篇博客主要讲的是celery的基本使用方式以及常用的目录结构。这一篇主要讲celery定时任务的使用</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">其实celery定时任务非常的简单，我们只需要在celery实例化的那个文件夹中进行一些配置即可</span><br><span class="line">然后使用下述命令启动自动提交任务的服务:</span><br><span class="line">celery beat -A celery_task -l info</span><br><span class="line">celery worker -A celery_task -l info -P eventlet</span><br><span class="line"></span><br><span class="line">实例:</span><br><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> Celery</span><br><span class="line"></span><br><span class="line">broker = <span class="string">&#x27;redis://127.0.0.1:6379/1&#x27;</span></span><br><span class="line">backend = <span class="string">&#x27;redis://127.0.0.1:6379/2&#x27;</span></span><br><span class="line">app = Celery(broker=broker, backend=backend, include=[<span class="string">&#x27;celery_task.tasks&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 时区</span></span><br><span class="line">app.conf.timezone = <span class="string">&#x27;Asia/Shanghai&#x27;</span></span><br><span class="line"><span class="comment"># 是否使用UTC</span></span><br><span class="line">app.conf.enable_utc = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 任务的定时配置</span></span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> timedelta</span><br><span class="line"><span class="keyword">from</span> celery.schedules <span class="keyword">import</span> crontab</span><br><span class="line">app.conf.beat_schedule = &#123;</span><br><span class="line">    <span class="string">&#x27;low-task&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;task&#x27;</span>: <span class="string">&#x27;celery_task.tasks.low&#x27;</span>,               <span class="comment">#任务的位置</span></span><br><span class="line">        <span class="string">&#x27;schedule&#x27;</span>: timedelta(seconds=<span class="number">3</span>),              <span class="comment">#距离执行的时间，放一个时间对象</span></span><br><span class="line">        <span class="comment"># &#x27;schedule&#x27;: crontab(hour=8, day_of_week=1),  # 每周一早八点</span></span><br><span class="line">        <span class="string">&#x27;args&#x27;</span>: (<span class="number">300</span>, <span class="number">150</span>),                            <span class="comment">#任务所需的参数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>按上述方式进行配置后，我们便不需要使用delay去提交任务，而是一到执行时间celery便会自动执行</p>]]></content>
     
     
       
@@ -504,30 +528,6 @@
     <category term="hexo" scheme="https://a744740454.github.io/tags/hexo/"/>
     
     <category term="butterfly" scheme="https://a744740454.github.io/tags/butterfly/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>gitee图床搭建</title>
-    <link href="https://a744740454.github.io/2021/01/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/gitee%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/"/>
-    <id>https://a744740454.github.io/2021/01/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/gitee%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</id>
-    <published>2021-01-14T08:21:05.153Z</published>
-    <updated>2021-01-15T04:35:58.076Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="gitee图床搭建"><a href="#gitee图床搭建" class="headerlink" title="gitee图床搭建"></a><strong>gitee图床搭建</strong></h3><p><strong>1.新建一个仓库</strong><br>    1.选择公开仓库，不然外界无法访问仓库内的图片<br>    2.选择使用readme文件初始化这个仓库<br>    3.填写仓库名称以及路径<br>    4.点击创建即可</p><p><strong>2.点击头像，找到私人令牌并点击</strong><br>    1.创建一个新令牌<br>    2.选择你私人令牌所拥有的权限 #私人令牌的作用是用于替代用户名与密码的，你可以利用这个私人令牌对仓库进行对应的权限管理<br>    3.获得一串token，这个token需要我们自行保存，丢失之后就没有了。</p><p><strong>3.下载PicGo</strong><br>    这是一款开源的用于上传图片的软件,是当前市面上比较好用的软件<br>    下载链接:<br>        <a href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p><p><strong>4.配置PicGo</strong><br>    1.下载好之后,我们先在picgo左侧最下边安装一个插件<br>        在搜索框输入<strong>gitee</strong>,下载<strong>gitee-upload</strong></p><p>2.进行图床设置<br>    我们在图床设置里面选择gitee<br>    里面有下述几个参数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">repo：(用户名&#x2F;仓库名) #a744740454&#x2F;img</span><br><span class="line">branch: 分支 #一般写master</span><br><span class="line">token: 刚刚的私人令牌的token</span><br><span class="line">path: 存放的具体路径 #eg:img  填写这个的话若没有这个目录会新建，然后上传图片到这个目录下</span><br><span class="line">customPath：  默认即可，不用填写</span><br><span class="line">customUrl：  默认即可，不用填写    </span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;gitee图床搭建&quot;&gt;&lt;a href=&quot;#gitee图床搭建&quot; class=&quot;headerlink&quot; title=&quot;gitee图床搭建&quot;&gt;&lt;/a&gt;&lt;strong&gt;gitee图床搭建&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;1.新建一个仓库&lt;/strong&gt;</summary>
-      
-    
-    
-    
-    <category term="个人博客搭建" scheme="https://a744740454.github.io/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="hexo" scheme="https://a744740454.github.io/tags/hexo/"/>
     
   </entry>
   
