@@ -1,0 +1,340 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>drf序列化器 | SadnessPineapple</title><meta name="keywords" content="django,rest-framework,drf"><meta name="author" content="Sadness Pineapple"><meta name="copyright" content="Sadness Pineapple"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="序列化器的各个字段以及字段内属性字段表格：    BooleanField BooleanField()    NullBooleanField NullBooleanField()   CharField CharField(max_length&#x3D;None, min_length&#x3D;None, allow_blank&#x3D;False, trim_whitespace&#x3D;True)   EmailFiel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="drf序列化器">
+<meta property="og:url" content="https://a744740454.github.io/2021/02/22/django/rest-framework/drf%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8/index.html">
+<meta property="og:site_name" content="SadnessPineapple">
+<meta property="og:description" content="序列化器的各个字段以及字段内属性字段表格：    BooleanField BooleanField()    NullBooleanField NullBooleanField()   CharField CharField(max_length&#x3D;None, min_length&#x3D;None, allow_blank&#x3D;False, trim_whitespace&#x3D;True)   EmailFiel">
+<meta property="og:locale">
+<meta property="og:image" content="https://i.loli.net/2021/01/15/3px1TfQY9DnGNEe.jpg">
+<meta property="article:published_time" content="2021-02-22T10:25:41.294Z">
+<meta property="article:modified_time" content="2021-02-22T10:28:02.781Z">
+<meta property="article:author" content="Sadness Pineapple">
+<meta property="article:tag" content="django">
+<meta property="article:tag" content="rest-framework">
+<meta property="article:tag" content="drf">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/01/15/3px1TfQY9DnGNEe.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://a744740454.github.io/2021/02/22/django/rest-framework/drf%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+const saveToLocal = {
+  // ttl 單位是 天
+  set: function setWithExpiry(key, value, ttl) {
+    if (ttl === 0) return
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-02-22 18:28:02'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/flink.min.css"><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="SadnessPineapple" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://i.loli.net/2021/01/15/UCfNhvRid3xIVzS.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">33</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">30</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">11</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2021/01/15/3px1TfQY9DnGNEe.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">SadnessPineapple</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">drf序列化器</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-02-22T10:25:41.294Z" title="Created 2021-02-22 18:25:41">2021-02-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-02-22T10:28:02.781Z" title="Updated 2021-02-22 18:28:02">2021-02-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/rest-framework/">rest-framework</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="序列化器的各个字段以及字段内属性"><a href="#序列化器的各个字段以及字段内属性" class="headerlink" title="序列化器的各个字段以及字段内属性"></a>序列化器的各个字段以及字段内属性</h2><p>字段表格：</p>
+<table>
+<thead>
+<tr>
+<th><strong>BooleanField</strong></th>
+<th>BooleanField()</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>NullBooleanField</strong></td>
+<td>NullBooleanField()</td>
+</tr>
+<tr>
+<td><strong>CharField</strong></td>
+<td>CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)</td>
+</tr>
+<tr>
+<td><strong>EmailField</strong></td>
+<td>EmailField(max_length=None, min_length=None, allow_blank=False)</td>
+</tr>
+<tr>
+<td><strong>RegexField</strong></td>
+<td>RegexField(regex, max_length=None, min_length=None, allow_blank=False)</td>
+</tr>
+<tr>
+<td><strong>SlugField</strong></td>
+<td>SlugField(max<em>length=50, min_length=None, allow_blank=False) 正则字段，验证正则模式 [a-zA-Z0-9</em>-]+</td>
+</tr>
+<tr>
+<td><strong>URLField</strong></td>
+<td>URLField(max_length=200, min_length=None, allow_blank=False)</td>
+</tr>
+<tr>
+<td><strong>UUIDField</strong></td>
+<td>UUIDField(format=’hex_verbose’) format: 1) <code>&#39;hex_verbose&#39;</code> 如<code>&quot;5ce0e9a5-5ffa-654b-cee0-1238041fb31a&quot;</code> 2） <code>&#39;hex&#39;</code> 如 <code>&quot;5ce0e9a55ffa654bcee01238041fb31a&quot;</code> 3）<code>&#39;int&#39;</code> - 如: <code>&quot;123456789012312313134124512351145145114&quot;</code> 4）<code>&#39;urn&#39;</code> 如: <code>&quot;urn:uuid:5ce0e9a5-5ffa-654b-cee0-1238041fb31a&quot;</code></td>
+</tr>
+<tr>
+<td><strong>IPAddressField</strong></td>
+<td>IPAddressField(protocol=’both’, unpack_ipv4=False, **options)</td>
+</tr>
+<tr>
+<td><strong>IntegerField</strong></td>
+<td>IntegerField(max_value=None, min_value=None)</td>
+</tr>
+<tr>
+<td><strong>FloatField</strong></td>
+<td>FloatField(max_value=None, min_value=None)</td>
+</tr>
+<tr>
+<td><strong>DecimalField</strong></td>
+<td>DecimalField(max_digits, decimal_places, coerce_to_string=None, max_value=None, min_value=None) max_digits: 最多位数 decimal_palces: 小数点位置</td>
+</tr>
+<tr>
+<td><strong>DateTimeField</strong></td>
+<td>DateTimeField(format=api_settings.DATETIME_FORMAT, input_formats=None)</td>
+</tr>
+<tr>
+<td><strong>DateField</strong></td>
+<td>DateField(format=api_settings.DATE_FORMAT, input_formats=None)</td>
+</tr>
+<tr>
+<td><strong>TimeField</strong></td>
+<td>TimeField(format=api_settings.TIME_FORMAT, input_formats=None)</td>
+</tr>
+<tr>
+<td><strong>DurationField</strong></td>
+<td>DurationField()</td>
+</tr>
+<tr>
+<td><strong>ChoiceField</strong></td>
+<td>ChoiceField(choices) choices与Django的用法相同</td>
+</tr>
+<tr>
+<td><strong>MultipleChoiceField</strong></td>
+<td>MultipleChoiceField(choices)</td>
+</tr>
+<tr>
+<td><strong>FileField</strong></td>
+<td>FileField(max_length=None, allow_empty_file=False, use_url=UPLOADED_FILES_USE_URL)</td>
+</tr>
+<tr>
+<td><strong>ImageField</strong></td>
+<td>ImageField(max_length=None, allow_empty_file=False, use_url=UPLOADED_FILES_USE_URL)</td>
+</tr>
+<tr>
+<td><strong>ListField</strong></td>
+<td>ListField(child=, min_length=None, max_length=None)</td>
+</tr>
+<tr>
+<td><strong>DictField</strong></td>
+<td>DictField(child=)</td>
+</tr>
+</tbody></table>
+<p>通用字段属性</p>
+<table>
+<thead>
+<tr>
+<th><strong>read_only</strong></th>
+<th>表明该字段只会在返回数据的时候起到作用，并不会在写入数据的时候起到作用，默认False</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>write_only</strong></td>
+<td>表明该字段只会在往数据库输入的时候起到作用，并不会在返回数据的时候将该字段数据返回，默认False</td>
+</tr>
+<tr>
+<td><strong>required</strong></td>
+<td>表明该字段在反序列化时必须输入，默认True</td>
+</tr>
+<tr>
+<td><strong>default</strong></td>
+<td>反序列化时使用的默认值</td>
+</tr>
+<tr>
+<td><strong>allow_null</strong></td>
+<td>表明该字段是否允许传入None，默认False</td>
+</tr>
+<tr>
+<td><strong>validators</strong></td>
+<td>可以使用该属性进行数据校验，为该属性传入的是一个列表，列表内放入函数的内存地址</td>
+</tr>
+<tr>
+<td><strong>error_messages</strong></td>
+<td>包含错误编号与错误信息的字典</td>
+</tr>
+<tr>
+<td><strong>label</strong></td>
+<td>用于HTML展示API页面时，显示的字段名称</td>
+</tr>
+<tr>
+<td><strong>help_text</strong></td>
+<td>用于HTML展示API页面时，显示的字段帮助提示信息</td>
+</tr>
+</tbody></table>
+<p>非通用属性</p>
+<table>
+<thead>
+<tr>
+<th><strong>max_length</strong></th>
+<th>最大长度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>min_lenght</strong></td>
+<td>最小长度</td>
+</tr>
+<tr>
+<td><strong>allow_blank</strong></td>
+<td>是否允许为空</td>
+</tr>
+<tr>
+<td><strong>trim_whitespace</strong></td>
+<td>是否截断空白字符</td>
+</tr>
+<tr>
+<td><strong>max_value</strong></td>
+<td>最小值</td>
+</tr>
+<tr>
+<td><strong>min_value</strong></td>
+<td>最大值</td>
+</tr>
+</tbody></table>
+<h2 id="drf序列化器的全局钩子与局部钩子"><a href="#drf序列化器的全局钩子与局部钩子" class="headerlink" title="drf序列化器的全局钩子与局部钩子"></a>drf序列化器的全局钩子与局部钩子</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">局部钩子,validate_字段名，必须要有data,data就是form组件的clean_data</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">validate_title</span>(<span class="params">self, data</span>):</span> </span><br><span class="line">    <span class="keyword">if</span> data.startswith(<span class="string">&#x27;sb&#x27;</span>):</span><br><span class="line">        <span class="keyword">raise</span> ValidationError(<span class="string">&#x27;不能以sb开头&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> data</span><br><span class="line">        </span><br><span class="line">全局钩子,attrs就是form组件的clean_data</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">validate</span>(<span class="params">self, attrs</span>):</span></span><br><span class="line">    title=attrs.get(<span class="string">&#x27;title&#x27;</span>)</span><br><span class="line">    publish=attrs.get(<span class="string">&#x27;publish&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> title==publish:</span><br><span class="line">        <span class="keyword">raise</span> ValidationError(<span class="string">&#x27;书名不能跟出版社同名&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> attrs</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">validators 字段中指定特定函数去处理检测</span><br><span class="line">publish = serializers.CharField(max_length=<span class="number">32</span>,validators=[check,])</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check</span>(<span class="params">data</span>):</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(data)&gt;<span class="number">10</span>:</span><br><span class="line">        <span class="keyword">raise</span> ValidationError(<span class="string">&#x27;最长不能超过10&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure>
+<h2 id="序列化器的高级使用"><a href="#序列化器的高级使用" class="headerlink" title="序列化器的高级使用"></a>序列化器的高级使用</h2><h3 id="1-source"><a href="#1-source" class="headerlink" title="1.source"></a>1.source</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>可以通过source与models中的字段进行映射关系，这样我们可以任意取名，为返回的数据命名</span><br><span class="line">	book_name = serializers.CharField(min_length=<span class="number">3</span>, max_length=<span class="number">32</span>,source=<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>与models中的任意方法进行映射</span><br><span class="line">	我们可以创建任意一个不存在的字段，与models中的任意函数进行映射</span><br><span class="line">    序列化器中</span><br><span class="line">    name_price = serializers.CharField(source=<span class="string">&#x27;add&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    models中：</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.name + <span class="built_in">str</span>(self.price)</span><br><span class="line">    </span><br><span class="line"><span class="number">3.</span>支持跨表查询数据</span><br><span class="line">    publish_addr = serializers.CharField(max_length=<span class="number">32</span> , source=<span class="string">&#x27;publish.addr&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="2-SerializerMethodField"><a href="#2-SerializerMethodField" class="headerlink" title="2.SerializerMethodField"></a>2.SerializerMethodField</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">使用该字段后，你可以在下面写一个方法与该字段进行绑定，下面的方法的返回值就是你这个字段要被序列化，反序列化的值</span><br><span class="line"><span class="comment">#命名规范</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_</span>字段名(<span class="params">self,obj</span>) #<span class="title">obj</span>是必须要有的，<span class="title">obj</span>为你这个类绑定的表的		对象</span></span><br></pre></td></tr></table></figure>
+<h2 id="模型类序列化器"><a href="#模型类序列化器" class="headerlink" title="模型类序列化器"></a>模型类序列化器</h2><h3 id="ModelSerilizer"><a href="#ModelSerilizer" class="headerlink" title="ModelSerilizer"></a>ModelSerilizer</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Book</span>(<span class="params">serializers.ModelSerializer</span>):</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        model = models.Book <span class="comment">#与model中的哪个表进行关联</span></span><br><span class="line">        fields = <span class="string">&#x27;__all__&#x27;</span> <span class="comment">#将哪些字段进行序列化或反序列化__all__是指全部序列化</span></span><br><span class="line">        exclude = [字段] <span class="comment">#除了哪些字段都进行序列化以及反序列化，不能跟fields同时使用</span></span><br><span class="line">        read_only_fields = [字段] <span class="comment">#只读与之前的read_only一样</span></span><br><span class="line">        write_only_fields = [字段] <span class="comment">#只写</span></span><br><span class="line">        extra_kwargs = &#123;字段:&#123;属性&#125;&#125; eg:&#123;<span class="string">&#x27;title&#x27;</span>:&#123;<span class="string">&#x27;max_length&#x27;</span>:<span class="number">32</span>,<span class="string">&#x27;write_only&#x27;</span>:<span class="literal">True</span>&#125;&#125;</span><br><span class="line">        depth = <span class="number">1</span> <span class="comment">#跨表查询，将另外一张与该表有关表的数据全部查出</span></span><br><span class="line">        </span><br><span class="line">新增与修改</span><br><span class="line">	不需要重写create与update方法，在ModelSerializer以及进行了重写</span><br><span class="line"></span><br><span class="line">ps:值得注意的是，使用该序列器并对表进行关联后，当你调用is_valid()方法后，他会去帮助你检验数据库中的校验规则，比如用户名必须唯一等</span><br></pre></td></tr></table></figure>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/django/">django</a><a class="post-meta__tags" href="/tags/rest-framework/">rest-framework</a><a class="post-meta__tags" href="/tags/drf/">drf</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/01/15/3px1TfQY9DnGNEe.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/02/22/django/rest-framework/RESTful%20API%E8%A7%84%E8%8C%83/"><img class="prev-cover" src="https://i.loli.net/2021/01/15/PSqYyZrQhX2lWpa.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">RESTful API规范</div></div></a></div><div class="next-post pull-right"><a href="/2021/02/22/django/rest-framework/rest-framework%E5%88%9D%E8%AF%86/"><img class="next-cover" src="https://i.loli.net/2021/01/15/lNVkumjp6IiHGAr.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">rest-framework初识</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2021/02/22/django/rest-framework/RESTful API规范/" title="RESTful API规范"><img class="cover" src="https://i.loli.net/2021/01/15/PSqYyZrQhX2lWpa.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-22</div><div class="title">RESTful API规范</div></div></a></div><div><a href="/2021/02/22/django/rest-framework/drf视图类及路由设置/" title="drf视图类及路由设置"><img class="cover" src="https://i.loli.net/2021/01/15/kKUe1IaFhsAfwDP.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-22</div><div class="title">drf视图类及路由设置</div></div></a></div><div><a href="/2021/02/22/django/rest-framework/rest-framework初识/" title="rest-framework初识"><img class="cover" src="https://i.loli.net/2021/01/15/lNVkumjp6IiHGAr.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-22</div><div class="title">rest-framework初识</div></div></a></div><div><a href="/2021/02/22/django/rest-framework/drf过滤、排序、分页器/" title="drf过滤、排序、分页器"><img class="cover" src="https://i.loli.net/2021/01/15/PSqYyZrQhX2lWpa.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-22</div><div class="title">drf过滤、排序、分页器</div></div></a></div><div><a href="/2021/02/22/django/rest-framework/drf认证、权限、频率实现/" title="drf认证、权限、频率实现"><img class="cover" src="https://i.loli.net/2021/01/15/3px1TfQY9DnGNEe.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-22</div><div class="title">drf认证、权限、频率实现</div></div></a></div><div><a href="/2021/01/14/django/django的简单应用/" title="django的基本使用"><img class="cover" src="https://i.loli.net/2021/01/15/l2huGSOCq6IY985.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-14</div><div class="title">django的基本使用</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://i.loli.net/2021/01/15/UCfNhvRid3xIVzS.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Sadness Pineapple</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">33</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">30</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">11</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">This is sadnesspineapple blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8%E7%9A%84%E5%90%84%E4%B8%AA%E5%AD%97%E6%AE%B5%E4%BB%A5%E5%8F%8A%E5%AD%97%E6%AE%B5%E5%86%85%E5%B1%9E%E6%80%A7"><span class="toc-number">1.</span> <span class="toc-text">序列化器的各个字段以及字段内属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#drf%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8%E7%9A%84%E5%85%A8%E5%B1%80%E9%92%A9%E5%AD%90%E4%B8%8E%E5%B1%80%E9%83%A8%E9%92%A9%E5%AD%90"><span class="toc-number">2.</span> <span class="toc-text">drf序列化器的全局钩子与局部钩子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8%E7%9A%84%E9%AB%98%E7%BA%A7%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">序列化器的高级使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-source"><span class="toc-number">3.1.</span> <span class="toc-text">1.source</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-SerializerMethodField"><span class="toc-number">3.2.</span> <span class="toc-text">2.SerializerMethodField</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E7%B1%BB%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8"><span class="toc-number">4.</span> <span class="toc-text">模型类序列化器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ModelSerilizer"><span class="toc-number">4.1.</span> <span class="toc-text">ModelSerilizer</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/02/22/django/rest-framework/drf%E8%A7%86%E5%9B%BE%E7%B1%BB%E5%8F%8A%E8%B7%AF%E7%94%B1%E8%AE%BE%E7%BD%AE/" title="drf视图类及路由设置"><img src="https://i.loli.net/2021/01/15/kKUe1IaFhsAfwDP.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="drf视图类及路由设置"/></a><div class="content"><a class="title" href="/2021/02/22/django/rest-framework/drf%E8%A7%86%E5%9B%BE%E7%B1%BB%E5%8F%8A%E8%B7%AF%E7%94%B1%E8%AE%BE%E7%BD%AE/" title="drf视图类及路由设置">drf视图类及路由设置</a><time datetime="2021-02-22T11:50:55.194Z" title="Created 2021-02-22 19:50:55">2021-02-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/22/django/rest-framework/drf%E8%AE%A4%E8%AF%81%E3%80%81%E6%9D%83%E9%99%90%E3%80%81%E9%A2%91%E7%8E%87%E5%AE%9E%E7%8E%B0/" title="drf认证、权限、频率实现"><img src="https://i.loli.net/2021/01/15/3px1TfQY9DnGNEe.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="drf认证、权限、频率实现"/></a><div class="content"><a class="title" href="/2021/02/22/django/rest-framework/drf%E8%AE%A4%E8%AF%81%E3%80%81%E6%9D%83%E9%99%90%E3%80%81%E9%A2%91%E7%8E%87%E5%AE%9E%E7%8E%B0/" title="drf认证、权限、频率实现">drf认证、权限、频率实现</a><time datetime="2021-02-22T11:50:51.470Z" title="Created 2021-02-22 19:50:51">2021-02-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/22/django/rest-framework/drf%E8%BF%87%E6%BB%A4%E3%80%81%E6%8E%92%E5%BA%8F%E3%80%81%E5%88%86%E9%A1%B5%E5%99%A8/" title="drf过滤、排序、分页器"><img src="https://i.loli.net/2021/01/15/PSqYyZrQhX2lWpa.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="drf过滤、排序、分页器"/></a><div class="content"><a class="title" href="/2021/02/22/django/rest-framework/drf%E8%BF%87%E6%BB%A4%E3%80%81%E6%8E%92%E5%BA%8F%E3%80%81%E5%88%86%E9%A1%B5%E5%99%A8/" title="drf过滤、排序、分页器">drf过滤、排序、分页器</a><time datetime="2021-02-22T11:50:48.280Z" title="Created 2021-02-22 19:50:48">2021-02-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/22/django/rest-framework/RESTful%20API%E8%A7%84%E8%8C%83/" title="RESTful API规范"><img src="https://i.loli.net/2021/01/15/PSqYyZrQhX2lWpa.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="RESTful API规范"/></a><div class="content"><a class="title" href="/2021/02/22/django/rest-framework/RESTful%20API%E8%A7%84%E8%8C%83/" title="RESTful API规范">RESTful API规范</a><time datetime="2021-02-22T11:47:43.320Z" title="Created 2021-02-22 19:47:43">2021-02-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/22/django/rest-framework/drf%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8/" title="drf序列化器"><img src="https://i.loli.net/2021/01/15/3px1TfQY9DnGNEe.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="drf序列化器"/></a><div class="content"><a class="title" href="/2021/02/22/django/rest-framework/drf%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8/" title="drf序列化器">drf序列化器</a><time datetime="2021-02-22T10:25:41.294Z" title="Created 2021-02-22 18:25:41">2021-02-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Sadness Pineapple</div><div class="footer_custom_text">浙ICP备2021002618号</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/js/hideMobileSidebar.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
