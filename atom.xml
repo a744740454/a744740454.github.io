@@ -6,7 +6,7 @@
   <link href="https://a744740454.github.io/atom.xml" rel="self"/>
   
   <link href="https://a744740454.github.io/"/>
-  <updated>2021-02-24T11:32:59.820Z</updated>
+  <updated>2021-03-01T07:33:14.352Z</updated>
   <id>https://a744740454.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>布隆过滤器</title>
+    <link href="https://a744740454.github.io/2021/03/01/%E9%80%9A%E7%94%A8%E7%9F%A5%E8%AF%86%E7%82%B9/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/"/>
+    <id>https://a744740454.github.io/2021/03/01/%E9%80%9A%E7%94%A8%E7%9F%A5%E8%AF%86%E7%82%B9/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/</id>
+    <published>2021-03-01T00:56:25.149Z</published>
+    <updated>2021-03-01T07:33:14.352Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="布隆过滤器"><a href="#布隆过滤器" class="headerlink" title="布隆过滤器"></a>布隆过滤器</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">什么是布隆过滤器</span><br><span class="line">布隆过滤器是一种数据结构，用来判断某个值是否已经存在某个集合中了</span><br><span class="line">优点：空间效率和时间效率极高</span><br><span class="line">缺点：有一定的误识别率，并且随着数据量的增加这个误差的概率会越来越大</span><br></pre></td></tr></table></figure><h2 id="布隆过滤器的应用场景"><a href="#布隆过滤器的应用场景" class="headerlink" title="布隆过滤器的应用场景"></a>布隆过滤器的应用场景</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">布隆过滤器广泛应用于网页黑名单系统、垃圾邮件过滤系统、爬虫网址判重系统等。</span><br><span class="line">当你数据库有大量的数据的时候，你每次进行查询都是很消耗服务器资源的一种行为，并且对数据库的压力也会增大。</span><br><span class="line">这种时候就可以考虑使用布隆过滤器</span><br></pre></td></tr></table></figure><h2 id="布隆过滤器原理"><a href="#布隆过滤器原理" class="headerlink" title="布隆过滤器原理"></a>布隆过滤器原理</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">当有一个集合，并且集合里面有多个元素时，首先将位数组进行初始化，然后将集合中的数据通过<span class="built_in">hash</span>函数获得对应的<span class="built_in">hash</span>编码，这个编码可能对应位数组上的一个点获多个点，然后将位数组上对应的值更改为<span class="number">1.</span>数据越多，对应的位数组上的值被改为<span class="number">1</span>的越多。</span><br><span class="line"></span><br><span class="line">位数组:一个很长的二进制向量 </span><br><span class="line"></span><br><span class="line">布隆过滤器误判的原因</span><br><span class="line">当你将一个值通过<span class="built_in">hash</span>函数获得对应的<span class="built_in">hash</span>编码，可能这个值并没有存储过，但是被判断为已经存在过了。</span><br></pre></td></tr></table></figure><p><img src="https://gitee.com/a744740454/mypic/raw/master/img/1030776-20170106143141784-1475031003.png" alt="1030776-20170106143141784-1475031003"></p><h2 id="哈希函数"><a href="#哈希函数" class="headerlink" title="哈希函数"></a>哈希函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">哈希函数是布隆过滤器的基础，布隆过滤器也是根据哈希函数实现的</span><br><span class="line">哈希函数：将任意大小的数据转换成特定大小的数据的函数，转换后的数据称为哈希值或哈希编码</span><br></pre></td></tr></table></figure><p><img src="https://gitee.com/a744740454/mypic/raw/master/img/1030776-20170106142012816-1867044021.png" alt="1030776-20170106142012816-1867044021"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;布隆过滤器&quot;&gt;&lt;a href=&quot;#布隆过滤器&quot; class=&quot;headerlink&quot; title=&quot;布隆过滤器&quot;&gt;&lt;/a&gt;布隆过滤器&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter</summary>
+      
+    
+    
+    
+    <category term="布隆过滤器" scheme="https://a744740454.github.io/categories/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/"/>
+    
+    
+    <category term="布隆过滤器" scheme="https://a744740454.github.io/tags/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/"/>
+    
+    <category term="数据结构" scheme="https://a744740454.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
   
   <entry>
     <title>Flask请求扩展</title>
@@ -505,27 +531,6 @@
     
     
     <category term="五险一金" scheme="https://a744740454.github.io/tags/%E4%BA%94%E9%99%A9%E4%B8%80%E9%87%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>gitpython学习</title>
-    <link href="https://a744740454.github.io/2021/01/20/python%E6%A8%A1%E5%9D%97/gitpython/gitpython/"/>
-    <id>https://a744740454.github.io/2021/01/20/python%E6%A8%A1%E5%9D%97/gitpython/gitpython/</id>
-    <published>2021-01-20T11:34:32.932Z</published>
-    <updated>2021-01-20T12:57:11.304Z</updated>
-    
-    
-    
-    
-    <category term="gitpython" scheme="https://a744740454.github.io/categories/gitpython/"/>
-    
-    
-    <category term="自动化" scheme="https://a744740454.github.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
-    
-    <category term="gitpython" scheme="https://a744740454.github.io/tags/gitpython/"/>
-    
-    <category term="python模块" scheme="https://a744740454.github.io/tags/python%E6%A8%A1%E5%9D%97/"/>
     
   </entry>
   
