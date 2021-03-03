@@ -6,7 +6,7 @@
   <link href="https://a744740454.github.io/atom.xml" rel="self"/>
   
   <link href="https://a744740454.github.io/"/>
-  <updated>2021-03-01T07:33:14.352Z</updated>
+  <updated>2021-03-03T04:01:59.474Z</updated>
   <id>https://a744740454.github.io/</id>
   
   <author>
@@ -15,6 +15,141 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://a744740454.github.io/2021/03/03/%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
+    <id>https://a744740454.github.io/2021/03/03/%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</id>
+    <published>2021-03-03T04:01:47.734Z</published>
+    <updated>2021-03-03T04:01:59.474Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://a744740454.github.io/2021/03/03/%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"/>
+    <id>https://a744740454.github.io/2021/03/03/%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</id>
+    <published>2021-03-03T04:01:47.734Z</published>
+    <updated>2021-03-03T04:01:47.734Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://a744740454.github.io/2021/03/03/%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"/>
+    <id>https://a744740454.github.io/2021/03/03/%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</id>
+    <published>2021-03-03T04:01:21.037Z</published>
+    <updated>2021-03-03T04:01:21.037Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>脏读、不可重复读、幻读</title>
+    <link href="https://a744740454.github.io/2021/03/03/mysql/%E8%84%8F%E8%AF%BB%E3%80%81%E5%B9%BB%E8%AF%BB%E3%80%81%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB/"/>
+    <id>https://a744740454.github.io/2021/03/03/mysql/%E8%84%8F%E8%AF%BB%E3%80%81%E5%B9%BB%E8%AF%BB%E3%80%81%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB/</id>
+    <published>2021-03-03T01:48:12.755Z</published>
+    <updated>2021-03-03T08:09:20.483Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="脏读、不可重复读、幻读"><a href="#脏读、不可重复读、幻读" class="headerlink" title="脏读、不可重复读、幻读"></a>脏读、不可重复读、幻读</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">脏读:A事务读取到B事务未提交的数据，然后由于某种原因B事务进行了回滚，这样子A事务获取的数据就和回滚后的数据不一样了</span><br><span class="line">不可重复读:事务a在同一个事务内多次读取同一个数据，可能事务b再此期间修改了这个数值，导致前后读取的数据值不一样</span><br><span class="line">幻读:事务a在读取一段范围内的数据的时候，事务b往这个范围内写入了一条数据，事务a在以相同的条件查询数据的时候查出了多出来的一条数据</span><br></pre></td></tr></table></figure><h2 id="mysql四种隔离级别"><a href="#mysql四种隔离级别" class="headerlink" title="mysql四种隔离级别"></a>mysql四种隔离级别</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Read Uncommitted（读取未提交内容）</span><br><span class="line">在这个隔离级别中，所有的事务都可以看到其他未提交事务的执行结果。</span><br><span class="line">这个隔离级别很少被用在实际应用场景中，因为她的效率比其他的隔离级别好多少，并且会造成脏读的情况。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Read Committed（读取提交内容）</span><br><span class="line">这个级别所有的事务只能看见其余事务已经提交的结果</span><br><span class="line"></span><br><span class="line">Repeatable Read（可重读）</span><br><span class="line">同一事务的多个实例在并发读取数据时，会看到同样的数据行。不过理论上这个会造成幻读的情况</span><br><span class="line"></span><br><span class="line">Serializable（可串行化）</span><br><span class="line">这是最高的隔离级别，它让事务之间以串行的方式进行，让事务之间不可能互相冲突，从而解决幻读问题，不过这会导致数据库读取资源过慢，导致大量超时现象的发生</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;脏读、不可重复读、幻读&quot;&gt;&lt;a href=&quot;#脏读、不可重复读、幻读&quot; class=&quot;headerlink&quot; title=&quot;脏读、不可重复读、幻读&quot;&gt;&lt;/a&gt;脏读、不可重复读、幻读&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;tab</summary>
+      
+    
+    
+    
+    <category term="mysql高级" scheme="https://a744740454.github.io/categories/mysql%E9%AB%98%E7%BA%A7/"/>
+    
+    
+    <category term="mysql" scheme="https://a744740454.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>flask请求流程</title>
+    <link href="https://a744740454.github.io/2021/03/02/flask/flask%E8%AF%B7%E6%B1%82%E6%B5%81%E7%A8%8B/"/>
+    <id>https://a744740454.github.io/2021/03/02/flask/flask%E8%AF%B7%E6%B1%82%E6%B5%81%E7%A8%8B/</id>
+    <published>2021-03-02T10:58:05.540Z</published>
+    <updated>2021-03-02T11:26:59.345Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="flask请求流程flask项目一启动，有6个全局变量"><a href="#flask请求流程flask项目一启动，有6个全局变量" class="headerlink" title="flask请求流程flask项目一启动，有6个全局变量"></a>flask请求流程flask项目一启动，有6个全局变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">_request_ctx_stack:LocalStack #LocalStack对象</span><br><span class="line">_app_ctx_stack:LocalStack #LocalStack对象</span><br><span class="line">current_app:LocalProxy(_find_app)</span><br><span class="line">request:LocalProxy #LocalStack对象</span><br><span class="line">session:LocalProxy #LocalStack对象</span><br><span class="line">g:LocalProxy #LocalStack对象</span><br></pre></td></tr></table></figure><h3 id="请求来了"><a href="#请求来了" class="headerlink" title="请求来了"></a>请求来了</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.__call__()-----&gt;内部执行:self.wsgi_app(environ, start_response)</span><br></pre></td></tr></table></figure><h3 id="wsgi-app"><a href="#wsgi-app" class="headerlink" title="wsgi_app()"></a>wsgi_app()</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>执行:ctx = self.request_context(environ):返回一个RequestContext对象，并且封装了request(当次请求的request对象),session。</span><br><span class="line"><span class="number">2.</span>执行:ctx.push():RequestContext对象的push方法</span><br><span class="line">    <span class="number">2.1</span> push方法中中间位置<span class="number">382</span>行有:_request_ctx_stack.push(self),self指的是ctx对象</span><br><span class="line">    <span class="number">2.2</span> 去_request_ctx_stack对象的类中找push方法(LocalStack中找push方法)</span><br><span class="line">    <span class="number">2.3</span> push源码</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">push</span>(<span class="params">self, obj</span>):</span></span><br><span class="line">    <span class="comment"># 通过反射找到self._local,在__init__实例化的时候生成的:self._local = Local()</span></span><br><span class="line">    <span class="comment"># Local() flask封装了支持线程和协程的local对象</span></span><br><span class="line">    <span class="comment"># 一开始取不到stack,返回None</span></span><br><span class="line">    rv = <span class="built_in">getattr</span>(self._local, <span class="string">&quot;stack&quot;</span>, <span class="literal">None</span>)</span><br><span class="line">    <span class="keyword">if</span> rv <span class="keyword">is</span> <span class="literal">None</span>:</span><br></pre></td></tr></table></figure><h3 id="如果在视图函数中使用request对象，比如-print-request"><a href="#如果在视图函数中使用request对象，比如-print-request" class="headerlink" title="如果在视图函数中使用request对象，比如:print(request)"></a>如果在视图函数中使用request对象，比如:print(request)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>会调用request对象的`__str__`方法,request类是:LocalProxy</span><br><span class="line"><span class="number">2.</span>LocalProxy中的`__str__`方法:<span class="keyword">lambda</span> x: <span class="built_in">str</span>(x._get_current_object())</span><br><span class="line"><span class="number">1.</span>内部执行_get_current_object()方法的源码如下:</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_get_current_object</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">hasattr</span>(self.__local, <span class="string">&quot;__release_local__&quot;</span>):</span><br><span class="line">        <span class="comment"># self.__local()在__init__的时候，实例化的，在__init__中:object.__setattr__(self, &quot;_LocalProxy__local&quot;, local)</span></span><br><span class="line">        <span class="comment"># 用了隐藏属性</span></span><br><span class="line">        <span class="comment"># self.__loacl</span></span><br><span class="line"><span class="comment"># 实例化该类的时候传入的local(偏函数的内存地址:request = LocalProxy(partial(_lookup_req_object, &quot;request&quot;)))</span></span><br><span class="line">            </span><br><span class="line"><span class="number">3.</span>_lookup_req_object函数源码如下:</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_lookup_req_object</span>(<span class="params">name</span>):</span></span><br><span class="line">    <span class="comment"># name就是&#x27;request&#x27;字符串</span></span><br><span class="line">    <span class="comment"># top方法是把第二步中放入的ctx取出来，因为都在一个线程内，当前取到的就是当前请求的ctx对象</span></span><br><span class="line">    top = _request_ctx_stack.top</span><br><span class="line">    <span class="keyword">if</span> top <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">raise</span> RuntimeError(_request_ctx_err_msg)</span><br><span class="line">     </span><br><span class="line"><span class="number">4.</span>所以:print(request)实质上是在打印当次请求的request对象的__str__</span><br></pre></td></tr></table></figure><h3 id="如果在视图函数中使用request对象"><a href="#如果在视图函数中使用request对象" class="headerlink" title="如果在视图函数中使用request对象"></a>如果在视图函数中使用request对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">比如：print(request.method):实质上是取到当次请求的request对象的methid属性</span><br></pre></td></tr></table></figure><h3 id="最终，请求结束执行"><a href="#最终，请求结束执行" class="headerlink" title="最终，请求结束执行"></a>最终，请求结束执行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.auto_pop(error)# 把ctx移除掉</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;flask请求流程flask项目一启动，有6个全局变量&quot;&gt;&lt;a href=&quot;#flask请求流程flask项目一启动，有6个全局变量&quot; class=&quot;headerlink&quot; title=&quot;flask请求流程flask项目一启动，有6个全局变量&quot;&gt;&lt;/a&gt;flask</summary>
+      
+    
+    
+    
+    <category term="flask" scheme="https://a744740454.github.io/categories/flask/"/>
+    
+    
+    <category term="flask" scheme="https://a744740454.github.io/tags/flask/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python项目模块导出</title>
+    <link href="https://a744740454.github.io/2021/03/02/python%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/python%E9%A1%B9%E7%9B%AE%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%87%BA/"/>
+    <id>https://a744740454.github.io/2021/03/02/python%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/python%E9%A1%B9%E7%9B%AE%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%87%BA/</id>
+    <published>2021-03-02T10:42:51.902Z</published>
+    <updated>2021-03-02T10:44:50.928Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="python项目模块导出"><a href="#python项目模块导出" class="headerlink" title="python项目模块导出"></a>python项目模块导出</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> 在虚拟环境中直接导出</span><br><span class="line">pip3 freeze &gt;requirements.txt</span><br><span class="line"><span class="number">2</span> 系统环境装了很多模块，只导出当前项目依赖的模块</span><br><span class="line">-pip3 install pipreqs</span><br><span class="line">    -pipreqs ./ --encoding=utf8</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;python项目模块导出&quot;&gt;&lt;a href=&quot;#python项目模块导出&quot; class=&quot;headerlink&quot; title=&quot;python项目模块导出&quot;&gt;&lt;/a&gt;python项目模块导出&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;</summary>
+      
+    
+    
+    
+    <category term="python实用技巧" scheme="https://a744740454.github.io/categories/python%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+    
+    
+    <category term="python" scheme="https://a744740454.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>flask划分目录(蓝图)</title>
+    <link href="https://a744740454.github.io/2021/03/02/flask/flask%E5%88%92%E5%88%86%E7%9B%AE%E5%BD%95(%E8%93%9D%E5%9B%BE)/"/>
+    <id>https://a744740454.github.io/2021/03/02/flask/flask%E5%88%92%E5%88%86%E7%9B%AE%E5%BD%95(%E8%93%9D%E5%9B%BE)/</id>
+    <published>2021-03-02T08:27:23.226Z</published>
+    <updated>2021-03-02T09:13:07.075Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="flask划分目录"><a href="#flask划分目录" class="headerlink" title="flask划分目录"></a>flask划分目录</h2><h3 id="flask不使用蓝图划分目录"><a href="#flask不使用蓝图划分目录" class="headerlink" title="flask不使用蓝图划分目录"></a>flask不使用蓝图划分目录</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">目录结构</span><br><span class="line">flask_study</span><br><span class="line">    static</span><br><span class="line">    templates</span><br><span class="line">    views</span><br><span class="line">        __init__.py</span><br><span class="line">        order.py <span class="comment">#app文件</span></span><br><span class="line">        user.py <span class="comment">#app文件</span></span><br><span class="line">    main.py</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="comment">#main.py 项目的入口</span></span><br><span class="line"><span class="keyword">from</span> views <span class="keyword">import</span> app <span class="comment">#从views导入app对象</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#__init__.py 在这里实例化app对象</span></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask,url_for,redirect,views</span><br><span class="line">app = Flask(__name__,template_folder=<span class="string">&#x27;../templates&#x27;</span>)</span><br><span class="line">app.debug=<span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#user.py</span></span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> app <span class="comment">#导入app对象</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/user_index/&#x27;</span></span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">user_index</span>():</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;我是user接口的首页&#x27;</span></span><br><span class="line"></span><br><span class="line">只有上述代码是不能执行的，因为这样子只执行了__init__的代码，但是没有将user.py中的代码执行，因此我们需要在__init__.py中将app导入</span><br><span class="line"></span><br><span class="line"><span class="comment">#__init__.py</span></span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> order</span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> user</span><br></pre></td></tr></table></figure><h3 id="flask蓝图"><a href="#flask蓝图" class="headerlink" title="flask蓝图"></a>flask蓝图</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">上述代码虽然可以执行，但是容易出现循环导入的问题，因此flask官方提供了一种方法，帮助我们划分目录，这就是蓝图</span><br><span class="line"></span><br><span class="line">使用步骤</span><br><span class="line"><span class="number">1.</span>实例化对象</span><br><span class="line"><span class="comment">#user.py</span></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Blueprint</span><br><span class="line">    user = Blueprint(<span class="string">&#x27;user&#x27;</span>, __name__) <span class="comment">#第一个参数是蓝图的名称，任意写</span></span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>在app中注册</span><br><span class="line"><span class="comment">#__init__.py</span></span><br><span class="line"><span class="keyword">from</span> views.user <span class="keyword">import</span> user <span class="comment">#将app应用中实例化的对象导入过来</span></span><br><span class="line">app.register_blueprint(user) <span class="comment">#注册</span></span><br><span class="line"> </span><br><span class="line"><span class="number">3.</span>写路由</span><br><span class="line"><span class="comment">#user.py</span></span><br><span class="line"><span class="meta">    @user.route(<span class="params"><span class="string">&#x27;/user_index/&#x27;</span></span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">user_index</span>():</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;我是user接口的首页&#x27;</span></span><br><span class="line">   </span><br><span class="line"><span class="number">4.</span>其余知识点</span><br><span class="line"><span class="number">1.</span>可以指定路由进来时的前缀，添加一个url_prefix即可</span><br><span class="line">    app.register_blueprint(user, url_prefix=<span class="string">&#x27;/user&#x27;</span>)</span><br><span class="line">    <span class="number">2.</span>若app划分为一个文件夹，我们可以在这个文件夹中有自己的templates和static文件夹</span><br><span class="line">    web = Blueprint(<span class="string">&#x27;web&#x27;</span>,__name__,template_folder=<span class="string">&#x27;templates&#x27;</span>,static_folder=<span class="string">&#x27;static&#x27;</span>)</span><br><span class="line">    <span class="number">3.</span>蓝图对象有自己的请求扩展，你只有访问这个蓝图的路径时才会触发</span><br><span class="line">        web = Blueprint(<span class="string">&#x27;web&#x27;</span>, __name__,template_folder=<span class="string">&#x27;templates&#x27;</span>,static_folder=<span class="string">&#x27;static&#x27;</span>)</span><br><span class="line"><span class="meta">        @web.before_request</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">web_request</span>():</span></span><br><span class="line">            print(<span class="string">&#x27;web request&#x27;</span>)</span><br><span class="line"><span class="meta">        @web.after_request</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">web_after</span>(<span class="params">response</span>):</span></span><br><span class="line">            print(response)</span><br><span class="line">            <span class="keyword">return</span> response</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;flask划分目录&quot;&gt;&lt;a href=&quot;#flask划分目录&quot; class=&quot;headerlink&quot; title=&quot;flask划分目录&quot;&gt;&lt;/a&gt;flask划分目录&lt;/h2&gt;&lt;h3 id=&quot;flask不使用蓝图划分目录&quot;&gt;&lt;a href=&quot;#flask不使用蓝图划</summary>
+      
+    
+    
+    
+    <category term="flask" scheme="https://a744740454.github.io/categories/flask/"/>
+    
+    
+    <category term="flask" scheme="https://a744740454.github.io/tags/flask/"/>
+    
+  </entry>
   
   <entry>
     <title>布隆过滤器</title>
@@ -351,186 +486,6 @@
     <category term="rest-framework" scheme="https://a744740454.github.io/tags/rest-framework/"/>
     
     <category term="drf" scheme="https://a744740454.github.io/tags/drf/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>rest-framework初识</title>
-    <link href="https://a744740454.github.io/2021/02/22/django/rest-framework/rest-framework%E5%88%9D%E8%AF%86/"/>
-    <id>https://a744740454.github.io/2021/02/22/django/rest-framework/rest-framework%E5%88%9D%E8%AF%86/</id>
-    <published>2021-02-22T06:59:44.310Z</published>
-    <updated>2021-02-22T10:28:25.042Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="什么是rest-framework"><a href="#什么是rest-framework" class="headerlink" title="什么是rest_framework"></a>什么是rest_framework</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rest_framework简称drf</span><br><span class="line">rest_framework是基于django与RESTful API规范设计的框架。</span><br></pre></td></tr></table></figure><h2 id="drf的简单使用"><a href="#drf的简单使用" class="headerlink" title="drf的简单使用"></a>drf的简单使用</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>安装</span><br><span class="line">pip install djangorestframework</span><br><span class="line">    </span><br><span class="line"><span class="number">2.</span>注册</span><br><span class="line">在django的配置文件中进行注册，drf本质是一个app,所以我们在注册app的地方注册即可</span><br><span class="line">    </span><br><span class="line"><span class="number">3.</span>进行数据迁移</span><br><span class="line">python manage.py makemigrations</span><br><span class="line">python manage.py migrate</span><br><span class="line">    </span><br><span class="line"><span class="number">4.</span>新写一个序列化器类</span><br><span class="line"><span class="keyword">from</span> rest_framework <span class="keyword">import</span> serializers</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Book</span>(<span class="params">serializers.Serializer</span>):</span></span><br><span class="line">    <span class="comment">#写字段</span></span><br><span class="line">    <span class="built_in">id</span> = serializers.IntegerField(read_only=<span class="literal">True</span>)</span><br><span class="line">    name = serializers.CharField(min_length=<span class="number">3</span>, max_length=<span class="number">32</span>)</span><br><span class="line">    price = serializers.DecimalField(max_digits=<span class="number">5</span>, decimal_places=<span class="number">2</span>)</span><br><span class="line">    publish = serializers.CharField(max_length=<span class="number">32</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span>视图函数中创建类，以及在路由中配置路由</span><br><span class="line"><span class="comment">#路由</span></span><br><span class="line">url(<span class="string">r&#x27;^books/&#x27;</span>, views.Books.as_view()),</span><br><span class="line"></span><br><span class="line"><span class="comment">#视图 返回的Response是drf的Response</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Books</span>(<span class="params">APIView</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span>(<span class="params">self, request</span>):</span></span><br><span class="line">        books = models.Book.objects.<span class="built_in">all</span>()</span><br><span class="line">        book_ser = ser.Book(instance=books, many=<span class="literal">True</span>) <span class="comment"># 传入一个queryset对象，序列器会自动帮你转化为字典</span></span><br><span class="line">        <span class="keyword">return</span> Response(book_ser.data)</span><br><span class="line">    ps:序列器对象中的参数</span><br><span class="line">        many:若是多个对象要使该参数为true</span><br><span class="line">        instance:传入你实例化的对象</span><br><span class="line">        data:传入一个反序列化的数据</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;什么是rest-framework&quot;&gt;&lt;a href=&quot;#什么是rest-framework&quot; class=&quot;headerlink&quot; title=&quot;什么是rest_framework&quot;&gt;&lt;/a&gt;什么是rest_framework&lt;/h2&gt;&lt;figure class</summary>
-      
-    
-    
-    
-    <category term="rest-framework" scheme="https://a744740454.github.io/categories/rest-framework/"/>
-    
-    
-    <category term="django" scheme="https://a744740454.github.io/tags/django/"/>
-    
-    <category term="rest-framework" scheme="https://a744740454.github.io/tags/rest-framework/"/>
-    
-    <category term="drf" scheme="https://a744740454.github.io/tags/drf/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>web应用介绍</title>
-    <link href="https://a744740454.github.io/2021/02/22/django/web%E5%BA%94%E7%94%A8%E4%BB%8B%E7%BB%8D/"/>
-    <id>https://a744740454.github.io/2021/02/22/django/web%E5%BA%94%E7%94%A8%E4%BB%8B%E7%BB%8D/</id>
-    <published>2021-02-22T06:47:24.537Z</published>
-    <updated>2021-02-22T06:50:13.436Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="什么是web应用"><a href="#什么是web应用" class="headerlink" title="什么是web应用"></a>什么是web应用</h4><p>web应用是一种可以通过web访问的应用程序，用户只需要有浏览器即可，不需要安装其他软件</p><h4 id="什么是web框架"><a href="#什么是web框架" class="headerlink" title="什么是web框架"></a>什么是web框架</h4><p>web框架是一种开发框架，用于支持网络应用和网络服务的开发</p><h4 id="动静态网页的区别"><a href="#动静态网页的区别" class="headerlink" title="动静态网页的区别"></a>动静态网页的区别</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">动态网页：动态网页简单的说就是会随着用户的请求不同而改变内容的网页，一般会有一些后端的代码与前端代码进行交互</span><br><span class="line"></span><br><span class="line">静态网页：简单的说静态网页就是用户无论何时打开网页都是没有变化的，内容是固定的</span><br></pre></td></tr></table></figure><h4 id="python常用的三个web框架的区别"><a href="#python常用的三个web框架的区别" class="headerlink" title="python常用的三个web框架的区别"></a>python常用的三个web框架的区别</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#三个框架各自的特点</span></span><br><span class="line">Django:</span><br><span class="line">    大而全，集成了很多组件，有些笨重</span><br><span class="line">Flask:</span><br><span class="line">    小而轻，原生组件几乎为<span class="number">0</span>，但是第三方库极多</span><br><span class="line">Tornado:</span><br><span class="line">    原生的异步非阻塞框架，在处理并发的任务上十分的优秀</span><br></pre></td></tr></table></figure><h4 id="MVC与MTV"><a href="#MVC与MTV" class="headerlink" title="MVC与MTV"></a>MVC与MTV</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">MVC:一般市面上的web框架就是MVC框架的，他们将一个web应用分解成三部分，已达到解耦合的目的</span><br><span class="line">M:Models(模板层)用于和数据库打交道</span><br><span class="line">    V:View(视图层)负责与用户进行交互</span><br><span class="line">    C:Controller(控制层)进行逻辑处理的一层</span><br><span class="line">MTV:Django的web模式，本质还是MVC模式</span><br><span class="line">M:models(模型层)  与数据库交互</span><br><span class="line">    T:template(模板层)与用户交互</span><br><span class="line">    V:view(视图函数)  进行逻辑处理</span><br><span class="line">ps：MVC与MTV最大的区别就是MTV将MVC的C又进行了一层拆分，分出了一个urls专门用于处理路由匹配的问题，MVC的路由匹配则是直接在Controller中处理的</span><br></pre></td></tr></table></figure><h4 id=""><a href="#" class="headerlink" title=""></a></h4>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h4 id=&quot;什么是web应用&quot;&gt;&lt;a href=&quot;#什么是web应用&quot; class=&quot;headerlink&quot; title=&quot;什么是web应用&quot;&gt;&lt;/a&gt;什么是web应用&lt;/h4&gt;&lt;p&gt;web应用是一种可以通过web访问的应用程序，用户只需要有浏览器即可，不需要安装其他软件&lt;/</summary>
-      
-    
-    
-    
-    <category term="django" scheme="https://a744740454.github.io/categories/django/"/>
-    
-    
-    <category term="django" scheme="https://a744740454.github.io/tags/django/"/>
-    
-    <category term="web应用" scheme="https://a744740454.github.io/tags/web%E5%BA%94%E7%94%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>flask的简单使用</title>
-    <link href="https://a744740454.github.io/2021/02/14/flask/flask/"/>
-    <id>https://a744740454.github.io/2021/02/14/flask/flask/</id>
-    <published>2021-02-14T06:32:37.707Z</published>
-    <updated>2021-02-23T13:35:08.460Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="flask的简单使用"><a href="#flask的简单使用" class="headerlink" title="flask的简单使用"></a>flask的简单使用</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>安装flask</span><br><span class="line">pip install flask</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>新建一个py项目，并实例化获得一个flask对象</span><br><span class="line">eg:</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask,request,redirect</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>写一个函数</span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello_world</span>():</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Hello World!&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>启动服务</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run(host=<span class="string">&#x27;127.0.0.1&#x27;</span>,port=<span class="number">4000</span>)</span><br></pre></td></tr></table></figure><h2 id="flask返回页面"><a href="#flask返回页面" class="headerlink" title="flask返回页面"></a>flask返回页面</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>重定向</span><br><span class="line"><span class="number">1.</span>导入redirect</span><br><span class="line">    <span class="keyword">from</span> flask <span class="keyword">import</span> redirect</span><br><span class="line"><span class="number">2.</span>在对应的函数中返回</span><br><span class="line"><span class="meta">        @app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">hello_world</span>():</span></span><br><span class="line">            <span class="keyword">return</span> redirect()</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>直接返回字符串</span><br><span class="line"><span class="keyword">return</span> <span class="string">&#x27;任意字符&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>返回模板</span><br><span class="line"><span class="number">1.</span>导入render_template</span><br><span class="line">    <span class="keyword">from</span> flask <span class="keyword">import</span> render_template</span><br><span class="line">    <span class="number">2.</span>返回</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">&#x27;index.html&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>返回json格式字符串</span><br><span class="line"><span class="number">1.</span>导入jsonify</span><br><span class="line">    <span class="keyword">from</span> flask <span class="keyword">import</span> jsonify</span><br><span class="line">    <span class="number">2.</span>返回</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">&quot;username&quot;</span>: <span class="string">&quot;admin&quot;</span>,&#125;)</span><br></pre></td></tr></table></figure><h2 id="flask函数中使用反向解析"><a href="#flask函数中使用反向解析" class="headerlink" title="flask函数中使用反向解析"></a>flask函数中使用反向解析</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">在django中我们若要在函数中使用反向解析，我们使用的是reverse,而flask中则是url_for</span><br><span class="line"></span><br><span class="line">导入:</span><br><span class="line">    <span class="keyword">from</span> flask <span class="keyword">import</span> url_for</span><br><span class="line">参数:</span><br><span class="line">    endpoint --函数别名</span><br><span class="line"></span><br><span class="line">eg:</span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/index&#x27;</span></span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span>():</span></span><br><span class="line">    url=url_for(<span class="string">&#x27;home&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> redirect(url) <span class="comment">#重定向到endpoint为home的路径上去</span></span><br></pre></td></tr></table></figure><h2 id="flask的配置文件"><a href="#flask的配置文件" class="headerlink" title="flask的配置文件"></a>flask的配置文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">flask使用配置文件有多种方式</span><br><span class="line"><span class="number">1.</span>直接针对flask的对象进行配置，但是只能配两种</span><br><span class="line">app=Flask(__name__)</span><br><span class="line">app.secret_key=<span class="string">&#x27;asdfasdfasdf4545322wefaaeaesfsad&#x27;</span></span><br><span class="line">app.debug=<span class="literal">True</span>  <span class="comment"># 调试模式</span></span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>给对象的config设置，可以设置所有配置文件</span><br><span class="line">app.config[<span class="string">&#x27;DEBUG&#x27;</span>]=<span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>通过配置文件进行配置</span><br><span class="line">app.config.from_pyfile(<span class="string">&quot;settings.py&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>通过环境变量进行配置</span><br><span class="line">os.environ[<span class="string">&#x27;DEBUG&#x27;</span>]=<span class="string">&#x27;ddd&#x27;</span></span><br><span class="line">app.config.from_envvar(os.environ[<span class="string">&#x27;DEBUG&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span>通过json格式文件进行配置</span><br><span class="line">app.config.from_json(<span class="string">&quot;setting.json&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">6.</span>通过字典进行配置</span><br><span class="line">app.config.from_mapping(&#123;<span class="string">&#x27;DEBUG&#x27;</span>: <span class="literal">True</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="number">7.</span>通过类配置</span><br><span class="line">app.config.from_object(<span class="string">&#x27;settings.ProductionConfig&#x27;</span>) <span class="comment">#在settings文件夹中写一个类即可</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Config</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    DEBUG = <span class="literal">False</span></span><br><span class="line">    TESTING = <span class="literal">False</span></span><br><span class="line">    DATABASE_URI = <span class="string">&#x27;xxxx&#x27;</span></span><br><span class="line">    USER=<span class="string">&#x27;root&#x27;</span></span><br><span class="line">    PASSWORD=<span class="string">&#x27;123&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProductionConfig</span>(<span class="params">Config</span>):</span></span><br><span class="line">    DATABASE_URI = <span class="string">&#x27;mysql://user@localhost/foo&#x27;</span></span><br><span class="line">    USER = <span class="string">&#x27;luffy&#x27;</span></span><br><span class="line">    PASSWORD = <span class="string">&#x27;luffy?&#x27;</span></span><br></pre></td></tr></table></figure><h2 id="flask的默认配置"><a href="#flask的默认配置" class="headerlink" title="flask的默认配置"></a>flask的默认配置</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">        <span class="string">&#x27;DEBUG&#x27;</span>:                                get_debug_flag(default=<span class="literal">False</span>),  是否开启Debug模式</span><br><span class="line">        <span class="string">&#x27;TESTING&#x27;</span>:                              <span class="literal">False</span>,                          是否开启测试模式</span><br><span class="line">        <span class="string">&#x27;PROPAGATE_EXCEPTIONS&#x27;</span>:                 <span class="literal">None</span>,                          </span><br><span class="line">        <span class="string">&#x27;PRESERVE_CONTEXT_ON_EXCEPTION&#x27;</span>:        <span class="literal">None</span>,</span><br><span class="line">        <span class="string">&#x27;SECRET_KEY&#x27;</span>:                           <span class="literal">None</span>,</span><br><span class="line">        <span class="string">&#x27;PERMANENT_SESSION_LIFETIME&#x27;</span>:           timedelta(days=<span class="number">31</span>),</span><br><span class="line">        <span class="string">&#x27;USE_X_SENDFILE&#x27;</span>:                       <span class="literal">False</span>,</span><br><span class="line">        <span class="string">&#x27;LOGGER_NAME&#x27;</span>:                          <span class="literal">None</span>,</span><br><span class="line">        <span class="string">&#x27;LOGGER_HANDLER_POLICY&#x27;</span>:               <span class="string">&#x27;always&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;SERVER_NAME&#x27;</span>:                          <span class="literal">None</span>,</span><br><span class="line">        <span class="string">&#x27;APPLICATION_ROOT&#x27;</span>:                     <span class="literal">None</span>,</span><br><span class="line">        <span class="string">&#x27;SESSION_COOKIE_NAME&#x27;</span>:                  <span class="string">&#x27;session&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;SESSION_COOKIE_DOMAIN&#x27;</span>:                <span class="literal">None</span>,</span><br><span class="line">        <span class="string">&#x27;SESSION_COOKIE_PATH&#x27;</span>:                  <span class="literal">None</span>,</span><br><span class="line">        <span class="string">&#x27;SESSION_COOKIE_HTTPONLY&#x27;</span>:              <span class="literal">True</span>,</span><br><span class="line">        <span class="string">&#x27;SESSION_COOKIE_SECURE&#x27;</span>:                <span class="literal">False</span>,</span><br><span class="line">        <span class="string">&#x27;SESSION_REFRESH_EACH_REQUEST&#x27;</span>:         <span class="literal">True</span>,</span><br><span class="line">        <span class="string">&#x27;MAX_CONTENT_LENGTH&#x27;</span>:                   <span class="literal">None</span>,</span><br><span class="line">        <span class="string">&#x27;SEND_FILE_MAX_AGE_DEFAULT&#x27;</span>:            timedelta(hours=<span class="number">12</span>),</span><br><span class="line">        <span class="string">&#x27;TRAP_BAD_REQUEST_ERRORS&#x27;</span>:              <span class="literal">False</span>,</span><br><span class="line">        <span class="string">&#x27;TRAP_HTTP_EXCEPTIONS&#x27;</span>:                 <span class="literal">False</span>,</span><br><span class="line">        <span class="string">&#x27;EXPLAIN_TEMPLATE_LOADING&#x27;</span>:             <span class="literal">False</span>,</span><br><span class="line">        <span class="string">&#x27;PREFERRED_URL_SCHEME&#x27;</span>:                 <span class="string">&#x27;http&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;JSON_AS_ASCII&#x27;</span>:                        <span class="literal">True</span>,</span><br><span class="line">        <span class="string">&#x27;JSON_SORT_KEYS&#x27;</span>:                       <span class="literal">True</span>,</span><br><span class="line">        <span class="string">&#x27;JSONIFY_PRETTYPRINT_REGULAR&#x27;</span>:          <span class="literal">True</span>,</span><br><span class="line">        <span class="string">&#x27;JSONIFY_MIMETYPE&#x27;</span>:                     <span class="string">&#x27;application/json&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;TEMPLATES_AUTO_RELOAD&#x27;</span>:                <span class="literal">None</span>,</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><h2 id="flask默认拥有的转换器"><a href="#flask默认拥有的转换器" class="headerlink" title="flask默认拥有的转换器"></a>flask默认拥有的转换器</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">DEFAULT_CONVERTERS = &#123;</span><br><span class="line">    <span class="string">&#x27;default&#x27;</span>:          UnicodeConverter,  <span class="comment">#默认不填属性时设置的</span></span><br><span class="line">    <span class="string">&#x27;string&#x27;</span>:           UnicodeConverter,</span><br><span class="line">    <span class="string">&#x27;any&#x27;</span>:              AnyConverter,</span><br><span class="line">    <span class="string">&#x27;path&#x27;</span>:             PathConverter,</span><br><span class="line">    <span class="string">&#x27;int&#x27;</span>:              IntegerConverter,</span><br><span class="line">    <span class="string">&#x27;float&#x27;</span>:            FloatConverter,</span><br><span class="line">    <span class="string">&#x27;uuid&#x27;</span>:             UUIDConverter,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;flask的简单使用&quot;&gt;&lt;a href=&quot;#flask的简单使用&quot; class=&quot;headerlink&quot; title=&quot;flask的简单使用&quot;&gt;&lt;/a&gt;flask的简单使用&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;</summary>
-      
-    
-    
-    
-    <category term="flask" scheme="https://a744740454.github.io/categories/flask/"/>
-    
-    
-    <category term="flask" scheme="https://a744740454.github.io/tags/flask/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>scrapy提高爬取效率</title>
-    <link href="https://a744740454.github.io/2021/02/12/%E7%88%AC%E8%99%AB/scrapy/scrapy%E6%8F%90%E9%AB%98%E7%88%AC%E5%8F%96%E6%95%88%E7%8E%87/"/>
-    <id>https://a744740454.github.io/2021/02/12/%E7%88%AC%E8%99%AB/scrapy/scrapy%E6%8F%90%E9%AB%98%E7%88%AC%E5%8F%96%E6%95%88%E7%8E%87/</id>
-    <published>2021-02-12T05:46:12.545Z</published>
-    <updated>2021-02-16T04:20:06.509Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="提高爬虫效率"><a href="#提高爬虫效率" class="headerlink" title="提高爬虫效率"></a>提高爬虫效率</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> 提高scrapy的爬取效率（异步框架，基于twisted，性能很高了，可以优化的点），面试聊</span><br><span class="line"></span><br><span class="line">- 在配置文件中进行相关的配置即可:(默认还有一套setting，类比django)</span><br><span class="line"><span class="comment">#1 增加并发：</span></span><br><span class="line">默认scrapy开启的并发线程为<span class="number">32</span>个，可以适当进行增加。在settings配置文件中修改CONCURRENT_REQUESTS = <span class="number">100</span>值为<span class="number">100</span>,并发设置成了为<span class="number">100</span>。</span><br><span class="line">CONCURRENT_REQUESTS = <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#2 降低日志级别：</span></span><br><span class="line">在运行scrapy时，会有大量日志信息的输出，为了减少CPU的使用率。可以设置log输出信息为INFO或者ERROR即可。在配置文件中编写：LOG_LEVEL = ‘INFO’</span><br><span class="line"><span class="comment"># 3 禁止cookie：（cnblogs不需要cookie）</span></span><br><span class="line">如果不是真的需要cookie，则在scrapy爬取数据时可以禁止cookie从而减少CPU的使用率，提升爬取效率。在配置文件中编写：COOKIES_ENABLED = <span class="literal">False</span></span><br><span class="line"><span class="comment"># 4禁止重试：</span></span><br><span class="line">对失败的HTTP进行重新请求（重试）会减慢爬取速度，因此可以禁止重试。在配置文件中编写：</span><br><span class="line">RETRY_ENABLED = <span class="literal">False</span></span><br><span class="line"><span class="comment"># 5 减少下载超时：</span></span><br><span class="line">如果对一个非常慢的链接进行爬取，减少下载超时可以能让卡住的链接快速被放弃，从而提升效率。在配置文件中进行编写：</span><br><span class="line">DOWNLOAD_TIMEOUT = <span class="number">10</span> 超时时间为10s</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;提高爬虫效率&quot;&gt;&lt;a href=&quot;#提高爬虫效率&quot; class=&quot;headerlink&quot; title=&quot;提高爬虫效率&quot;&gt;&lt;/a&gt;提高爬虫效率&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gu</summary>
-      
-    
-    
-    
-    <category term="scrapy" scheme="https://a744740454.github.io/categories/scrapy/"/>
-    
-    
-    <category term="爬虫" scheme="https://a744740454.github.io/tags/%E7%88%AC%E8%99%AB/"/>
-    
-    <category term="scrapy" scheme="https://a744740454.github.io/tags/scrapy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>scrapy的Request与Item对象</title>
-    <link href="https://a744740454.github.io/2021/02/12/%E7%88%AC%E8%99%AB/scrapy/scrapy%E7%9A%84Response%E4%B8%8Eitem/"/>
-    <id>https://a744740454.github.io/2021/02/12/%E7%88%AC%E8%99%AB/scrapy/scrapy%E7%9A%84Response%E4%B8%8Eitem/</id>
-    <published>2021-02-12T05:19:34.262Z</published>
-    <updated>2021-02-16T04:19:57.584Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="scrapy的Request与item"><a href="#scrapy的Request与item" class="headerlink" title="scrapy的Request与item"></a>scrapy的Request与item</h2><h3 id="Request对象"><a href="#Request对象" class="headerlink" title="Request对象"></a>Request对象</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">导入位置</span><br><span class="line"><span class="keyword">from</span> scrapy.http.request <span class="keyword">import</span> Request</span><br><span class="line">参数:</span><br><span class="line">url       ---  一个网址，<span class="keyword">yield</span>住之后下次爬取的地址</span><br><span class="line">callback  ---  函数名，当request请求爬取回来之后执行的函数</span><br><span class="line">meta      ---  request与回调函数之间传递参数使用，传字典</span><br></pre></td></tr></table></figure><h3 id="Item对象"><a href="#Item对象" class="headerlink" title="Item对象"></a>Item对象</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>导入</span><br><span class="line"><span class="keyword">from</span> scrapy <span class="keyword">import</span> Item</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>自己写一个类并且继承Item类</span><br><span class="line">eg:</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FirstscrapyItem</span>(<span class="params">scrapy.Item</span>):</span></span><br><span class="line">    name = scrapy.Field()</span><br><span class="line">    </span><br><span class="line">当你在程序中<span class="keyword">yield</span>住一个Item对象之后，程序便会自动去保存</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>在爬虫程序中每爬取一页都实例化一个对象</span><br><span class="line">item = FirstscrapyItem()</span><br><span class="line">ps:往这个对象中存值只能使用[]的方式，不能用.</span><br><span class="line">eg:item[<span class="string">&#x27;url&#x27;</span>] = url</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span><span class="keyword">yield</span>返回该值即可，接下来他会根据settings中的配置去pipline中找到对应的类并进行持久化存储</span><br><span class="line">ITEM_PIPELINES = &#123;</span><br><span class="line">   <span class="string">&#x27;firstscrapy.pipelines.FirstscrapyPipeline&#x27;</span>: <span class="number">300</span>, <span class="comment">#类的位置，后面的数字是优先级</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="数据的持久化操作"><a href="#数据的持久化操作" class="headerlink" title="数据的持久化操作"></a>数据的持久化操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.使用命令</span><br><span class="line">我们只需要在执行文件后添加一个-o 路径即可</span><br><span class="line">eg:scrapy crawl first -o .&#x2F;qiubai.csv</span><br><span class="line">以该方式存储的只能为&#39;json&#39;, &#39;jsonlines&#39;, &#39;jl&#39;, &#39;csv&#39;, &#39;xml&#39;, &#39;marshal&#39;, &#39;pickle&#39;这些格式</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;scrapy的Request与item&quot;&gt;&lt;a href=&quot;#scrapy的Request与item&quot; class=&quot;headerlink&quot; title=&quot;scrapy的Request与item&quot;&gt;&lt;/a&gt;scrapy的Request与item&lt;/h2&gt;&lt;h3 i</summary>
-      
-    
-    
-    
-    <category term="scrapy" scheme="https://a744740454.github.io/categories/scrapy/"/>
-    
-    
-    <category term="爬虫" scheme="https://a744740454.github.io/tags/%E7%88%AC%E8%99%AB/"/>
-    
-    <category term="scrapy" scheme="https://a744740454.github.io/tags/scrapy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>celery在linux的后台运行</title>
-    <link href="https://a744740454.github.io/2021/02/05/celery/celery%E5%9C%A8linux%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C/"/>
-    <id>https://a744740454.github.io/2021/02/05/celery/celery%E5%9C%A8linux%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C/</id>
-    <published>2021-02-05T06:05:55.775Z</published>
-    <updated>2021-02-16T02:14:27.420Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="celery部署到服务器上"><a href="#celery部署到服务器上" class="headerlink" title="celery部署到服务器上"></a>celery部署到服务器上</h2><p>当我们写了一个celery的定时任务之后，我们需要将其放到我们服务器上并让其在后台执行。</p><p>我本来是直接部署到服务器上，然后执行了两句命令，但是没想到确失败了。经过一番资料的查找，我发现需要用到两个命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&amp;      -- 这个符号可以让你的程序在后台运行</span><br><span class="line">nohup  -- 这个命令可以让你的程序在你退出ssh链接之后不被杀死</span><br><span class="line">eg:</span><br><span class="line">nohup .&#x2F;start-dishi.sh &gt;output 2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line">解释：</span><br><span class="line"> 1. &amp;符号的含义</span><br><span class="line"> 带&amp;的命令行，即使terminal（终端）关闭，或者电脑死机程序依然运行（前提是你把程序递交到服务器上)； </span><br><span class="line"> 2. 2&gt;&amp;1的意思 </span><br><span class="line">　　这个意思是把标准错误（2）重定向到标准输出中（1），而标准输出又导入文件output里面，所以结果是标准错误和标准输出都导入文件output里面了。 至于为什么需要将标准错误重定向到标准输出的原因，那就归结为标准错误没有缓冲区，而stdout有。这就会导致 &gt;output 2&gt;output 文件output被两次打开，而stdout和stderr将会竞争覆盖，这肯定不是我门想要的. </span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;celery部署到服务器上&quot;&gt;&lt;a href=&quot;#celery部署到服务器上&quot; class=&quot;headerlink&quot; title=&quot;celery部署到服务器上&quot;&gt;&lt;/a&gt;celery部署到服务器上&lt;/h2&gt;&lt;p&gt;当我们写了一个celery的定时任务之后，我们需要将</summary>
-      
-    
-    
-    
-    <category term="celery学习" scheme="https://a744740454.github.io/categories/celery%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="celery,linux" scheme="https://a744740454.github.io/tags/celery-linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>五险一金相关</title>
-    <link href="https://a744740454.github.io/2021/02/02/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/%E4%BA%94%E9%99%A9%E4%B8%80%E9%87%91%E7%9B%B8%E5%85%B3/"/>
-    <id>https://a744740454.github.io/2021/02/02/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3/%E4%BA%94%E9%99%A9%E4%B8%80%E9%87%91%E7%9B%B8%E5%85%B3/</id>
-    <published>2021-02-02T00:28:07.897Z</published>
-    <updated>2021-02-02T01:02:42.077Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="五险一金是指哪些？"><a href="#五险一金是指哪些？" class="headerlink" title="五险一金是指哪些？"></a>五险一金是指哪些？</h2><p>五险:养老，医疗，失业，生育，工伤</p><p>一金:公积金</p><h2 id="个人账户与统筹账户"><a href="#个人账户与统筹账户" class="headerlink" title="个人账户与统筹账户"></a>个人账户与统筹账户</h2><p>五险的账户会分为2部分，一部分为个人账户，一部分为统筹账户</p><p>个人账户:从你工资上扣的</p><p>统筹账户:从公司中扣的,与员工无关</p><h2 id="社保基数是多少？"><a href="#社保基数是多少？" class="headerlink" title="社保基数是多少？"></a>社保基数是多少？</h2><p> 社会保险基数简称社保基数，是指职工在一个社保年度的社会保险缴费基数。它是按照职工上一年度1月至12月的所有工资性收入所得的月平均额来进行确定。社会保险缴费基数是计算用人单位及其职工缴纳社保费和职工社会保险待遇的重要依据，有上限和下限之分，具体数额根据各地区实际情况而定。</p><p>建议:够用即可</p><h2 id="社保可以取得前提"><a href="#社保可以取得前提" class="headerlink" title="社保可以取得前提"></a>社保可以取得前提</h2><pre><code> -死亡</code></pre><p>​    -移民</p><p>​    -转移</p><h2 id="公积金"><a href="#公积金" class="headerlink" title="公积金"></a>公积金</h2><p>​    -这个能多交就多交(5%–12%),你交一半，公司给你交一半，可以随时提取</p><p>​    -租房子，新房装修等都可以提取</p><h2 id="面试技巧"><a href="#面试技巧" class="headerlink" title="面试技巧"></a>面试技巧</h2><p>1.现在全国的社保是没有进行全国联网的，因此若hr问你之前有没有交过社保，可以使用下面这句话</p><p>​    -我之前在上海没有交过社保，你给我办增员</p><p>2.工作经验三年，没有交过社保</p><p>​    -之前是在别的城市工作</p><p>​    -跟之前的同事合伙办了个公司</p><p>​    -去了个创业公司(公司没给交)</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;五险一金是指哪些？&quot;&gt;&lt;a href=&quot;#五险一金是指哪些？&quot; class=&quot;headerlink&quot; title=&quot;五险一金是指哪些？&quot;&gt;&lt;/a&gt;五险一金是指哪些？&lt;/h2&gt;&lt;p&gt;五险:养老，医疗，失业，生育，工伤&lt;/p&gt;
-&lt;p&gt;一金:公积金&lt;/p&gt;
-&lt;h2 id</summary>
-      
-    
-    
-    
-    <category term="五险一金" scheme="https://a744740454.github.io/categories/%E4%BA%94%E9%99%A9%E4%B8%80%E9%87%91/"/>
-    
-    
-    <category term="五险一金" scheme="https://a744740454.github.io/tags/%E4%BA%94%E9%99%A9%E4%B8%80%E9%87%91/"/>
     
   </entry>
   
