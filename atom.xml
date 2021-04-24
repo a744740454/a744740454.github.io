@@ -6,7 +6,7 @@
   <link href="https://a744740454.github.io/atom.xml" rel="self"/>
   
   <link href="https://a744740454.github.io/"/>
-  <updated>2021-04-16T15:50:26.609Z</updated>
+  <updated>2021-04-16T16:26:13.658Z</updated>
   <id>https://a744740454.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>css动画基础知识</title>
+    <link href="https://a744740454.github.io/2021/04/17/%E5%89%8D%E7%AB%AF/css/css%E5%8A%A8%E7%94%BB/"/>
+    <id>https://a744740454.github.io/2021/04/17/%E5%89%8D%E7%AB%AF/css/css%E5%8A%A8%E7%94%BB/</id>
+    <published>2021-04-16T16:02:33.623Z</published>
+    <updated>2021-04-16T16:26:13.658Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="浏览器前缀"><a href="#浏览器前缀" class="headerlink" title="浏览器前缀"></a>浏览器前缀</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">根据不同的浏览器内核，css前缀会不同，目前的css3样式只支持部分浏览器。</span><br><span class="line">1.Gecko内核 前缀为-moz- 火狐浏览器</span><br><span class="line">2.Webkit内核 前缀为-webkit- 也叫谷歌内核，chrome浏览器最先开发使用</span><br><span class="line">3.Trident内核 前缀为-ms- 也称IE内核</span><br><span class="line">4.Presto内核 前缀为-o- 目前只有opera采用</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;浏览器前缀&quot;&gt;&lt;a href=&quot;#浏览器前缀&quot; class=&quot;headerlink&quot; title=&quot;浏览器前缀&quot;&gt;&lt;/a&gt;浏览器前缀&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;</summary>
+      
+    
+    
+    
+    <category term="css动画" scheme="https://a744740454.github.io/categories/css%E5%8A%A8%E7%94%BB/"/>
+    
+    
+    <category term="css动画" scheme="https://a744740454.github.io/tags/css%E5%8A%A8%E7%94%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>rabbitmq交换机</title>
@@ -430,30 +454,6 @@
       
       
     <summary type="html">&lt;h2 id=&quot;Flask闪现&quot;&gt;&lt;a href=&quot;#Flask闪现&quot; class=&quot;headerlink&quot; title=&quot;Flask闪现&quot;&gt;&lt;/a&gt;Flask闪现&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class</summary>
-      
-    
-    
-    
-    <category term="flask" scheme="https://a744740454.github.io/categories/flask/"/>
-    
-    
-    <category term="flask" scheme="https://a744740454.github.io/tags/flask/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Flask设置session</title>
-    <link href="https://a744740454.github.io/2021/02/24/flask/Flask%E8%AE%BE%E7%BD%AEsession/"/>
-    <id>https://a744740454.github.io/2021/02/24/flask/Flask%E8%AE%BE%E7%BD%AEsession/</id>
-    <published>2021-02-24T11:01:52.026Z</published>
-    <updated>2021-02-24T11:07:31.170Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Flask设置session"><a href="#Flask设置session" class="headerlink" title="Flask设置session"></a>Flask设置session</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>设置密钥</span><br><span class="line">app.secret_key = <span class="string">&#x27;&#x27;</span>随机密钥</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>导入全局session对象</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> session</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>赋值</span><br><span class="line">session[<span class="string">&#x27;key&#x27;</span>] = value</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>取值</span><br><span class="line">session[<span class="string">&#x27;key&#x27;</span>]</span><br><span class="line"></span><br><span class="line">ps:session存放的位置是浏览器端的cookie中，类似于荷载</span><br></pre></td></tr></table></figure><h2 id="session的执行流程"><a href="#session的执行流程" class="headerlink" title="session的执行流程"></a>session的执行流程</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>请求来了在open_session中取出cookie，反解数据，包装成session---》视图函数中使用session</span><br><span class="line"><span class="number">2.</span>只要session修改了，请求走了---》save_session---》把session加密，放到cookie中，返回给前端</span><br><span class="line"><span class="number">3.</span>不同浏览器，cookie不同（你的淘宝，同一个浏览器只能登陆一个用户）</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;Flask设置session&quot;&gt;&lt;a href=&quot;#Flask设置session&quot; class=&quot;headerlink&quot; title=&quot;Flask设置session&quot;&gt;&lt;/a&gt;Flask设置session&lt;/h2&gt;&lt;figure class=&quot;highlight </summary>
       
     
     
