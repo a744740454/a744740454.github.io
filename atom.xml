@@ -6,7 +6,7 @@
   <link href="https://a744740454.github.io/atom.xml" rel="self"/>
   
   <link href="https://a744740454.github.io/"/>
-  <updated>2021-08-15T15:32:17.054Z</updated>
+  <updated>2021-09-08T15:17:15.464Z</updated>
   <id>https://a744740454.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>计算机网络的功能特性</title>
+    <link href="https://a744740454.github.io/2021/09/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8A%9F%E8%83%BD%E7%89%B9%E6%80%A7/"/>
+    <id>https://a744740454.github.io/2021/09/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8A%9F%E8%83%BD%E7%89%B9%E6%80%A7/</id>
+    <published>2021-09-08T15:17:15.326Z</published>
+    <updated>2021-09-08T15:17:15.464Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="计算机网络的功能特性"><a href="#计算机网络的功能特性" class="headerlink" title="## 计算机网络的功能特性"></a>## 计算机网络的功能特性</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;计算机网络的功能特性&quot;&gt;&lt;a href=&quot;#计算机网络的功能特性&quot; class=&quot;headerlink&quot; title=&quot;## 计算机网络的功能特性&quot;&gt;&lt;/a&gt;## 计算机网络的功能特性&lt;/h2&gt;</summary>
+      
+    
+    
+    
+    <category term="计算机网络" scheme="https://a744740454.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+    <category term="计算机网络" scheme="https://a744740454.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>docker镜像发布</title>
@@ -474,30 +498,6 @@
       
       
     <summary type="html">&lt;h2 id=&quot;计算机网络的组成与分类&quot;&gt;&lt;a href=&quot;#计算机网络的组成与分类&quot; class=&quot;headerlink&quot; title=&quot;计算机网络的组成与分类&quot;&gt;&lt;/a&gt;计算机网络的组成与分类&lt;/h2&gt;&lt;h3 id=&quot;什么叫计算机网络&quot;&gt;&lt;a href=&quot;#什么叫计算机网络&quot;</summary>
-      
-    
-    
-    
-    <category term="计算机网络" scheme="https://a744740454.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-    
-    <category term="计算机网络" scheme="https://a744740454.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机网络体系结构以及功能特性</title>
-    <link href="https://a744740454.github.io/2021/08/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/"/>
-    <id>https://a744740454.github.io/2021/08/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/</id>
-    <published>2021-08-15T15:32:11.726Z</published>
-    <updated>2021-08-15T15:32:12.167Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="计算机网络体系结构以及功能特性"><a href="#计算机网络体系结构以及功能特性" class="headerlink" title="计算机网络体系结构以及功能特性"></a>计算机网络体系结构以及功能特性</h2><p>计算机网络的体系结构设置的时候分为四部分:安全性、容错能力、服务质量Qos以及最后的可扩展性</p><p>下面我们首先来详细的讲解下这四部分</p><h3 id="计算机网络设计理念"><a href="#计算机网络设计理念" class="headerlink" title="计算机网络设计理念"></a>计算机网络设计理念</h3><p><strong>安全性</strong></p><p>毫无疑问，网络必须要具备的一个属性就是安全性，只有具备了安全性，人们才能放心的在网络上进行隐秘信息的传输，不然让任意的人破解我们的传输数据，这肯定是不好的。</p><p><strong>容错能力</strong></p><p>指的是即使网络中的一些组件因为某些原因不能工作。他也可以继续执行正常的功能</p><p><strong>服务质量</strong></p><p>由于不同的技术融合在一个平台上，但是网络的资源是有限的，因此网络管理员可以通过设备的配置，让不同的功能有不同的优先级。例如邮件的优先级就会比较低。</p><p><strong>可扩展性</strong></p><p>指的是描述了网络适应将来变化的能力。可升级的网络能够增加新的用户和设备而不必重新设计网络。这是因为随着网络的发展，网络必然会发生许多变化，如果不具备可适应性。那么将会消耗大量的人力物力。</p><h3 id="计算机网络的功能特性"><a href="#计算机网络的功能特性" class="headerlink" title="计算机网络的功能特性"></a>计算机网络的功能特性</h3><p>计算机网络在两个端用户之间是如何提供访问通路的，大致可以用下面这幅图来表示</p><p><img src="https://gitee.com/a744740454/mypic/raw/master/img/20210705180402.png" alt="微信截图_20210705180334"></p><p>首先，计算机网络应该在源节点和目标节点之间提供传输路线。这种传输线路可能要经过一些中间的转发节点</p><p>如果是远程联网，则需要通过租用电信公司提供的公用通信路线，这些通信可能是地面上的有形的链路</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;计算机网络体系结构以及功能特性&quot;&gt;&lt;a href=&quot;#计算机网络体系结构以及功能特性&quot; class=&quot;headerlink&quot; title=&quot;计算机网络体系结构以及功能特性&quot;&gt;&lt;/a&gt;计算机网络体系结构以及功能特性&lt;/h2&gt;&lt;p&gt;计算机网络的体系结构设置的时候分为四</summary>
       
     
     
