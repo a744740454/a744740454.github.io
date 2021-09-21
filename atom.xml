@@ -6,7 +6,7 @@
   <link href="https://a744740454.github.io/atom.xml" rel="self"/>
   
   <link href="https://a744740454.github.io/"/>
-  <updated>2021-09-08T15:17:15.464Z</updated>
+  <updated>2021-09-17T15:40:44.526Z</updated>
   <id>https://a744740454.github.io/</id>
   
   <author>
@@ -17,18 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>分层模型与协议、参考模型</title>
+    <link href="https://a744740454.github.io/2021/09/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E5%88%86%E5%B1%82%E6%A8%A1%E5%9E%8B%E4%B8%8E%E5%8D%8F%E8%AE%AE%E3%80%81%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/"/>
+    <id>https://a744740454.github.io/2021/09/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E5%88%86%E5%B1%82%E6%A8%A1%E5%9E%8B%E4%B8%8E%E5%8D%8F%E8%AE%AE%E3%80%81%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/</id>
+    <published>2021-09-17T14:52:24.681Z</published>
+    <updated>2021-09-17T15:40:44.526Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="分层模型与协议、参考模型"><a href="#分层模型与协议、参考模型" class="headerlink" title="分层模型与协议、参考模型"></a>分层模型与协议、参考模型</h2><h3 id="协议的定义"><a href="#协议的定义" class="headerlink" title="协议的定义"></a>协议的定义</h3><p>协议:简单的说就是规则，协议创建出来的目的是为了沟通的方所创建的。打个比方，我这边使用python写了一部分接口，别人如果要调用我的接口应该怎么办呢？如果我不和他说，那他就基本不可能知道我接口的构成。但是我写了接口文档之后，他就知道去如何调用我的接口了，协议的本质其实和接口文档也是类似的。他本质就是不同计算机之间沟通的桥梁。</p><h3 id="协议模型与参考模型"><a href="#协议模型与参考模型" class="headerlink" title="协议模型与参考模型"></a>协议模型与参考模型</h3><p>首先说结论，协议模型的本质是为了让人们使用更好的使用协议，而参考模型则是基于协议模型发展而来的。因此可以这么说协议模型，就是现实中实现某种协议而现实存在的，便于人们理解的。参考模型则不同，参考模型是为了让人们去理解网络的功能与过程去实现的。</p><p>打个比方:TCP/IP协议模型就详细的描述了每个部分实现的功能，是一种事实上的标准</p><p>参考模型:osi7层模型，他并没有详细的解释每一层中的某个协议具体的功能，而是大概的解释了网络的传输功能，并依据功能对此进行分类</p><h3 id="osi7层模型"><a href="#osi7层模型" class="headerlink" title="osi7层模型"></a>osi7层模型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1.osi7层模型是在1979年ISO公布的系统互连参考模型，他提供了关于网络通信过程的简要描述</span><br><span class="line">2.osi是一种分层的体系结构，共有7层</span><br><span class="line">    应表会传网数物</span><br><span class="line">    应用层:为终端用户提供应用程序服务</span><br><span class="line">    表示层:为应用提供数据的表示形式。例如表示层告诉应用层哪里有加密或者是否为一张图片</span><br><span class="line">    会话层:用户之间管理会话</span><br><span class="line">    传输层:定义数据段并编号，传送数据，并在目的地重组数据</span><br><span class="line">    网络层:为能通过在其他网络的中间设备进行端到端的发送建立编址包</span><br><span class="line">    数据链路层:为在局域网上主机到主机或广域网的设备间的发送建立和编址帧</span><br><span class="line">    物理层:传输数据</span><br><span class="line">3.每一层中都存在着一部分的实体,也就是具体的功能</span><br><span class="line">4.每一层的沟通方式使用的是SAP，也就是接口组成，上下层不需要知道其实现的细节</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;分层模型与协议、参考模型&quot;&gt;&lt;a href=&quot;#分层模型与协议、参考模型&quot; class=&quot;headerlink&quot; title=&quot;分层模型与协议、参考模型&quot;&gt;&lt;/a&gt;分层模型与协议、参考模型&lt;/h2&gt;&lt;h3 id=&quot;协议的定义&quot;&gt;&lt;a href=&quot;#协议的定义&quot; c</summary>
+      
+    
+    
+    
+    <category term="计算机网络" scheme="https://a744740454.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+    <category term="计算机网络" scheme="https://a744740454.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>计算机网络的功能特性</title>
     <link href="https://a744740454.github.io/2021/09/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8A%9F%E8%83%BD%E7%89%B9%E6%80%A7/"/>
     <id>https://a744740454.github.io/2021/09/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8A%9F%E8%83%BD%E7%89%B9%E6%80%A7/</id>
     <published>2021-09-08T15:17:15.326Z</published>
-    <updated>2021-09-08T15:17:15.464Z</updated>
+    <updated>2021-09-15T15:56:07.829Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="计算机网络的功能特性"><a href="#计算机网络的功能特性" class="headerlink" title="## 计算机网络的功能特性"></a>## 计算机网络的功能特性</h2>]]></content>
+    <content type="html"><![CDATA[<h2 id="计算机网络的功能特性"><a href="#计算机网络的功能特性" class="headerlink" title="计算机网络的功能特性"></a>计算机网络的功能特性</h2><p>首先我们抛出一个问题:计算机网络如何在两个端用户之间提供访问通信?</p><p>对于上述问题，我们可以简单的用下面这种文字链式的方式来进行回答</p><p><strong>应用–&gt;编码器–&gt;传输介质–&gt;编码器–&gt;应用</strong></p><p>上面是大概的轮廓，现在我们来详细讲讲通信之间的具体方式</p><h3 id="传输数据必备的前提"><a href="#传输数据必备的前提" class="headerlink" title="传输数据必备的前提"></a>传输数据必备的前提</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.众所周知，计算机之间的通信是通过电信号去通信的，那么问题来了，电信号是如何传播的。在当前社会其实是有两种方式的，一种是通过地面的有形介质，也就是深埋在地底的各种线路，一种是无形的介质，也就是卫星。</span><br><span class="line">2.其次我们假设一种情况，一匹马从北京到上海马不停蹄，是不是会累死？电信号其实本质也是这样，电信号在传播的时候其实是会有一定的损失的，如果距离过远，损失会更大，因此我们需要我们的“驿站”，也就是途中的部分转发节点</span><br><span class="line">3.不知道大家小时候知不知道“猫”，小时候如果要上网，那必须使用的方式是拨号上网。其实那是在和电话线使用同一个传输的通道，而猫的作用就是将我们电脑的数字信号转成模拟信号，以达到让电脑的数据可以通过电话的通道去进行传输。</span><br><span class="line"></span><br><span class="line">ps:数字信号和模拟信号的区别</span><br><span class="line">模拟信号是连续的，不停的，是一段电压</span><br><span class="line">数字信号则是通过0和1的数字串所构成的数字流来传输的、</span><br></pre></td></tr></table></figure><h3 id="数据传输的特点"><a href="#数据传输的特点" class="headerlink" title="数据传输的特点"></a>数据传输的特点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">数据传输其实是有一个很明显的特点的，打个比方，我们在打电话的时候，很明显数据应该是持续的，毕竟沟通嘛，不可能你隔一段时间说一句那个隔一段时间说一句，但是数据传输不一样。他其实是一个数据包一个数据包传输，并且每一个数据包之间的传输会有一定的间隔。</span><br><span class="line">综合上述特点，我们可以考虑到计算机之间的通信我们需要有一个比较合理的架构，毕竟世界上不止有两台计算机在通信，是非常多的计算机在进行通信。但是很多计算机其实是用的同一个信道。所以如何去规划这些数据包的传输是一件很有学问的事情</span><br></pre></td></tr></table></figure><h3 id="数据包的传输规划"><a href="#数据包的传输规划" class="headerlink" title="数据包的传输规划"></a>数据包的传输规划</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">针对数字信号的传输，设计者是设计了两种方案去解决这个问题</span><br><span class="line">1.报文交换</span><br><span class="line">2.分组交换(现在常用)</span><br><span class="line"></span><br><span class="line">上述两种听名字很高大上，实际上是非常简单的一个概念，报文交换就是将所有的数据一并进行传输，分组交换则是将一整组的数据进行拆分，拆成小的部分进行传输。</span><br><span class="line">至于两者之间的优劣可以去看这个博客:https:&#x2F;&#x2F;blog.csdn.net&#x2F;suxiaorui&#x2F;article&#x2F;details&#x2F;87099192个人觉得是讲解的比较简单详细的。</span><br><span class="line">这里说个结论，分组交换要优于报文交换。因为将数据进行拆分以后，你可以通过多个路线去进行传输，理论上是可以达到类似并行的效果的，并且个人觉得，这样做可以减少丢包带来的损失，就算丢了其中一部分包，你也只需要传输丢失的一部分包即可，不需要进行全部重传的操作。</span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="多路复用"><a href="#多路复用" class="headerlink" title="多路复用"></a>多路复用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">多路复用简单的说就是让多个计算机使用同一条通信的信道，这就是多路复用。</span><br><span class="line">多路复用+分组交换是现在最常用的一种传输数据的手段</span><br></pre></td></tr></table></figure><p><img src="C:\Users\QAQ\Desktop\R-C.png" alt="R-C"></p><p>​                                                                                                多路复用图示详解</p><h3 id="分组交换所需要的必备条件-分组的控制信息"><a href="#分组交换所需要的必备条件-分组的控制信息" class="headerlink" title="分组交换所需要的必备条件(分组的控制信息)"></a>分组交换所需要的必备条件(分组的控制信息)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">为了满足上述的功能条件，有下面三点是必须做到的</span><br><span class="line">1.差错控制</span><br><span class="line">2.寻址功能</span><br><span class="line">3.仲裁过程</span><br><span class="line">首先我们来谈谈差错控制，差错控制简单的说就是如何去校验你传输过来的数据是否正确？是否中途被人调过包获少包，你需要有这个校验功能</span><br><span class="line">寻址功能就是我们如何确定要给谁去传这个包？也就是类似的邮件寄件地址</span><br><span class="line">仲裁过程就是在多个计算机同时发包，那么谁先谁后？</span><br><span class="line"></span><br><span class="line">对于上述的功能，我们有个统一的名称(数据链路控制功能) Data Link Control</span><br><span class="line"></span><br><span class="line">上述几点是最重要的，但是除了上述几点，我们还需要考虑下面几点</span><br><span class="line">网络通信量过多了如何？如何确定计算机网络之间的通信已经结束？</span><br><span class="line">对于上述这两个问题也有一定的功能区解决</span><br><span class="line">流量控制以及拥塞控制是去解决第一个问题的。</span><br><span class="line">对于第二个问题则是牵扯到tcp中四次握手三次挥手的概念</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;计算机网络的功能特性&quot;&gt;&lt;a href=&quot;#计算机网络的功能特性&quot; class=&quot;headerlink&quot; title=&quot;## 计算机网络的功能特性&quot;&gt;&lt;/a&gt;## 计算机网络的功能特性&lt;/h2&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;计算机网络的功能特性&quot;&gt;&lt;a href=&quot;#计算机网络的功能特性&quot; class=&quot;headerlink&quot; title=&quot;计算机网络的功能特性&quot;&gt;&lt;/a&gt;计算机网络的功能特性&lt;/h2&gt;&lt;p&gt;首先我们抛出一个问题:计算机网络如何在两个端用户之间提供访问通信?&lt;/p&gt;
+</summary>
       
     
     
@@ -482,30 +507,6 @@
     <category term="第三方" scheme="https://a744740454.github.io/tags/%E7%AC%AC%E4%B8%89%E6%96%B9/"/>
     
     <category term="微信" scheme="https://a744740454.github.io/tags/%E5%BE%AE%E4%BF%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机网络的组成与分类</title>
-    <link href="https://a744740454.github.io/2021/08/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E7%BB%84%E6%88%90%E4%B8%8E%E5%88%86%E7%B1%BB/"/>
-    <id>https://a744740454.github.io/2021/08/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E7%BB%84%E6%88%90%E4%B8%8E%E5%88%86%E7%B1%BB/</id>
-    <published>2021-08-15T15:32:11.819Z</published>
-    <updated>2021-08-15T15:32:12.273Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="计算机网络的组成与分类"><a href="#计算机网络的组成与分类" class="headerlink" title="计算机网络的组成与分类"></a>计算机网络的组成与分类</h2><h3 id="什么叫计算机网络"><a href="#什么叫计算机网络" class="headerlink" title="什么叫计算机网络"></a>什么叫计算机网络</h3><p>计算机网络是利用通信线路和通信设备将有独立功能的计算机系统连接起来，按照网络协议实现资源共享和信息传递的系统。</p><h3 id="计算机网络的组成元素"><a href="#计算机网络的组成元素" class="headerlink" title="计算机网络的组成元素"></a>计算机网络的组成元素</h3><p>构成计算机网络的元素由两个，一个是<strong>网络节点</strong>一个是<strong>通信链路</strong></p><h4 id="网络节点"><a href="#网络节点" class="headerlink" title="网络节点"></a>网络节点</h4><p>网络节点又包含两个元素，一个是端节点，一个是转发节点</p><p>端节点:信源和信宿节点，如:用户主机和用户终端</p><p>转发节点:是指网络通信过程中控制和转发信息的节点，如: 交换机、集线器、接口信息处理器<strong>IMP</strong></p><h4 id="通信链路"><a href="#通信链路" class="headerlink" title="通信链路"></a>通信链路</h4><p>通信链路的含义是:传输信息的信道，如电话线、同轴电缆、双绞线等</p><h4 id="资源子网和通信子网"><a href="#资源子网和通信子网" class="headerlink" title="资源子网和通信子网"></a>资源子网和通信子网</h4><p><img src="https://gitee.com/a744740454/mypic/raw/master/img/20210623202122.jpg" alt="v2-4d0a0cca9a5827a51a05fb8153e9d059_qhd"></p><p>如上图所示虚线框外的部分称之为–资源子网</p><p>虚线框内的部分称之为–通信子网</p><p><strong>资源子网</strong>由拥有资源的用户主机和请求资源的用户终端组成，他们都是端节点</p><p><strong>通信子网</strong>是在端节点之间传送由信息组成的报文，由转发节点和通信链路组成</p><h3 id="网络覆盖范围分类"><a href="#网络覆盖范围分类" class="headerlink" title="网络覆盖范围分类"></a>网络覆盖范围分类</h3><p>局域网（Local Area Network, LAN）使用自备通信路线和通信设备、覆盖较小</p><p>广域网（Wide Area Network, WAN）租用公用通信线路和通信设备、覆盖较大</p><p>城域网（Metropolitan Area Network, MAN）覆盖城区范围，提供各种信息服务业务的高速计算机网络</p><h3 id="按网络的工作方式分类"><a href="#按网络的工作方式分类" class="headerlink" title="按网络的工作方式分类"></a>按网络的工作方式分类</h3><p>集中式网络:有一台功能较强的主机设备，通过通信系统和远地的终端设备连接起来，分时的为远程终端服务的计算机网络(银行就是这种工作模式)</p><p>分布式网络:由多台具有独立工作功能的计算机系统互连组成的计算机网络</p><h3 id="按网络的传输技术分类"><a href="#按网络的传输技术分类" class="headerlink" title="按网络的传输技术分类"></a>按网络的传输技术分类</h3><p>广播式网络:所有计算机共享一个公共通信信道的计算机网络</p><p>点对点式网络:网络中的通信结点之间存在一条专用通信路线的计算机网络</p><h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展:"></a>拓展:</h2><h3 id="IMP-接口信息处理器"><a href="#IMP-接口信息处理器" class="headerlink" title="IMP(接口信息处理器)"></a>IMP(接口信息处理器)</h3><p>根据ARPA网络的术语把转发节点统称为”接口信息处理器”（Interface Message Processor, IMP）</p><h4 id="IMP的特性"><a href="#IMP的特性" class="headerlink" title="IMP的特性"></a>IMP的特性</h4><p>1.当IMP是一种专用于通信的计算机，有些IMP之间直接相连，有些IMP之间必须经过其他IMP才能相连</p><p>2.当IMP收到一个报文后要根据报文的目标地址决定把该报文提交给与它相连的主机还是转发到下一个IMP，这种通信方式叫做”<strong>存储-转发</strong>“通信。（广域网中的通信一般都采用这种方式）</p><p>3.另一种通信方式”<strong>广播</strong>“通信方式，主要用于局域网中，在局域网中，IMP被简化为一个微处理的芯片，每台主机或工作站中都设置一个IMP。在广播通信系统中，唯一的信道为所有主机所共享，任何主机发出的信息所有主机都能收到</p><h4 id="拓扑结构"><a href="#拓扑结构" class="headerlink" title="拓扑结构"></a>拓扑结构</h4><p>定义:通信子网中转发节点的互连模式叫做子网的拓扑结构</p><p><img src="https://gitee.com/a744740454/mypic/raw/master/img/20210628192934.png" alt="image-20210628192835129"></p><h3 id="ISP-Internet-Service-provider"><a href="#ISP-Internet-Service-provider" class="headerlink" title="ISP(Internet Service provider)"></a>ISP(Internet Service provider)</h3><p>定义:提供互连服务的供应商</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;计算机网络的组成与分类&quot;&gt;&lt;a href=&quot;#计算机网络的组成与分类&quot; class=&quot;headerlink&quot; title=&quot;计算机网络的组成与分类&quot;&gt;&lt;/a&gt;计算机网络的组成与分类&lt;/h2&gt;&lt;h3 id=&quot;什么叫计算机网络&quot;&gt;&lt;a href=&quot;#什么叫计算机网络&quot;</summary>
-      
-    
-    
-    
-    <category term="计算机网络" scheme="https://a744740454.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-    
-    <category term="计算机网络" scheme="https://a744740454.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
