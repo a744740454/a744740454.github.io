@@ -6,7 +6,7 @@
   <link href="https://a744740454.github.io/atom.xml" rel="self"/>
   
   <link href="https://a744740454.github.io/"/>
-  <updated>2021-11-28T10:38:26.871Z</updated>
+  <updated>2021-12-11T11:25:23.544Z</updated>
   <id>https://a744740454.github.io/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://a744740454.github.io/2021/12/11/gui/PyQt5/PyQt5%E5%88%9D%E8%AF%86/"/>
+    <id>https://a744740454.github.io/2021/12/11/gui/PyQt5/PyQt5%E5%88%9D%E8%AF%86/</id>
+    <published>2021-12-11T11:25:23.544Z</published>
+    <updated>2021-12-11T11:25:23.544Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>pylint</title>
@@ -475,34 +488,6 @@
     <category term="第三方" scheme="https://a744740454.github.io/tags/%E7%AC%AC%E4%B8%89%E6%96%B9/"/>
     
     <category term="oauth2" scheme="https://a744740454.github.io/tags/oauth2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>阿里云oss第三方接入</title>
-    <link href="https://a744740454.github.io/2021/08/15/%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%A5%E5%85%A5/%E9%98%BF%E9%87%8C%E4%BA%91oss/"/>
-    <id>https://a744740454.github.io/2021/08/15/%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8E%A5%E5%85%A5/%E9%98%BF%E9%87%8C%E4%BA%91oss/</id>
-    <published>2021-08-15T15:32:12.497Z</published>
-    <updated>2021-08-15T15:32:12.947Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="阿里云oss"><a href="#阿里云oss" class="headerlink" title="阿里云oss"></a>阿里云oss</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> oss2</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> celery_module.utils.logger <span class="keyword">import</span> get_logger</span><br><span class="line"><span class="keyword">from</span> celery_module.config.config <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取logger对象</span></span><br><span class="line">logger = get_logger(<span class="string">&#x27;ali_oss_logger&#x27;</span>)</span><br><span class="line"><span class="comment"># 创建Bucket对象，所有Object相关的接口都可以通过Bucket对象来进行</span></span><br><span class="line">bucket = oss2.Bucket(oss2.Auth(access_key_id, access_key_secret), upload_endpoint, bucket_name)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 确认上面的参数都填写正确了</span></span><br><span class="line"><span class="keyword">for</span> param <span class="keyword">in</span> (access_key_id, access_key_secret, bucket_name, upload_endpoint):</span><br><span class="line">    <span class="keyword">assert</span> <span class="string">&#x27;&lt;&#x27;</span> <span class="keyword">not</span> <span class="keyword">in</span> param, <span class="string">&#x27;请设置参数：&#x27;</span> + param</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_local_image_info</span>(<span class="params">image_file</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;获取本地图片信息</span></span><br><span class="line"><span class="string">    :param str image_file: 本地图片</span></span><br><span class="line"><span class="string">    :return tuple: a 3-tuple(height, width, format).</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    im = Image.<span class="built_in">open</span>(image_file)</span><br><span class="line">    <span class="keyword">return</span> im.height, im.width, im.<span class="built_in">format</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">upload_img</span>(<span class="params">ali_oss_path, path, evidence_id, title, *args, **kwargs</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :param ali_oss_path: 上传到OSS的文件路径  eg:original/example.png</span></span><br><span class="line"><span class="string">    :param path: 本地图片路径   eg:example.png</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 上传图片</span></span><br><span class="line">    result = bucket.put_object_from_file(ali_oss_path, path, *args, **kwargs)</span><br><span class="line">    record_log(<span class="string">&quot;图片上传&quot;</span>, result)</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;code&quot;</span>: result.status, <span class="string">&quot;ali_oss_path&quot;</span>: ali_oss_path, <span class="string">&quot;path&quot;</span>: path, <span class="string">&quot;evidence_id&quot;</span>: evidence_id,</span><br><span class="line">            <span class="string">&#x27;title&#x27;</span>: title&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_img_info</span>(<span class="params">ali_oss_path, *args, **kwargs</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    :param ali_oss_path: 阿里oss的图片路径 eg:original/example.png</span></span><br><span class="line"><span class="string">    :param args:</span></span><br><span class="line"><span class="string">    :param kwargs:</span></span><br><span class="line"><span class="string">    :return: 返回json加载过后的图片信息</span></span><br><span class="line"><span class="string">        example:&#123;&#x27;FileSize&#x27;: &#123;&#x27;value&#x27;: &#x27;346013&#x27;&#125;, &#x27;Format&#x27;: &#123;&#x27;value&#x27;: &#x27;png&#x27;&#125;, &#x27;ImageHeight&#x27;: &#123;&#x27;value&#x27;: &#x27;4000&#x27;&#125;, &#x27;ImageWidth&#x27;: &#123;&#x27;value&#x27;: &#x27;1920&#x27;&#125;&#125;</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    result = bucket.get_object(ali_oss_path, *args, process=<span class="string">&#x27;image/info&#x27;</span>, **kwargs)</span><br><span class="line">    json_content = result.read()</span><br><span class="line">    decoded_json = json.loads(oss2.to_unicode(json_content))</span><br><span class="line">    <span class="keyword">return</span> decoded_json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delete_img</span>(<span class="params">ali_oss_path</span>):</span></span><br><span class="line">    result = bucket.delete_object(ali_oss_path)</span><br><span class="line">    record_log(<span class="string">&quot;图片删除&quot;</span>, result)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">record_log</span>(<span class="params">msg, result</span>):</span></span><br><span class="line">    <span class="keyword">if</span> result.status == <span class="number">200</span>:</span><br><span class="line">        logger.info(<span class="string">f&quot;<span class="subst">&#123;msg&#125;</span>成功&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        logger.warning(<span class="string">f&quot;<span class="subst">&#123;msg&#125;</span>失败&quot;</span>)</span><br><span class="line">        logger.warning(<span class="string">f&quot;状态码:<span class="subst">&#123;result.status&#125;</span>-----------请求ID:<span class="subst">&#123;result.request_id&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    a = get_img_info(<span class="string">&#x27;original/syb222.png&#x27;</span>)</span><br><span class="line">    print(a)</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;阿里云oss&quot;&gt;&lt;a href=&quot;#阿里云oss&quot; class=&quot;headerlink&quot; title=&quot;阿里云oss&quot;&gt;&lt;/a&gt;阿里云oss&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gu</summary>
-      
-    
-    
-    
-    <category term="第三方" scheme="https://a744740454.github.io/categories/%E7%AC%AC%E4%B8%89%E6%96%B9/"/>
-    
-    
-    <category term="第三方" scheme="https://a744740454.github.io/tags/%E7%AC%AC%E4%B8%89%E6%96%B9/"/>
-    
-    <category term="oss" scheme="https://a744740454.github.io/tags/oss/"/>
-    
-    <category term="阿里云" scheme="https://a744740454.github.io/tags/%E9%98%BF%E9%87%8C%E4%BA%91/"/>
     
   </entry>
   
