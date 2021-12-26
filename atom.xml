@@ -6,7 +6,7 @@
   <link href="https://a744740454.github.io/atom.xml" rel="self"/>
   
   <link href="https://a744740454.github.io/"/>
-  <updated>2021-12-11T11:25:23.544Z</updated>
+  <updated>2021-12-11T13:55:38.227Z</updated>
   <id>https://a744740454.github.io/</id>
   
   <author>
@@ -21,8 +21,15 @@
     <link href="https://a744740454.github.io/2021/12/11/gui/PyQt5/PyQt5%E5%88%9D%E8%AF%86/"/>
     <id>https://a744740454.github.io/2021/12/11/gui/PyQt5/PyQt5%E5%88%9D%E8%AF%86/</id>
     <published>2021-12-11T11:25:23.544Z</published>
-    <updated>2021-12-11T11:25:23.544Z</updated>
+    <updated>2021-12-11T13:55:38.227Z</updated>
     
+    <content type="html"><![CDATA[<h2 id="QObject"><a href="#QObject" class="headerlink" title="QObject"></a>QObject</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">所有控件的基类</span><br><span class="line">设置了一些通用与基础的方法</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">method:</span><br><span class="line">parent:</span><br><span class="line">获取该对象的父控件(只有一个)</span><br><span class="line">children:</span><br><span class="line">获取该对象的子控件(可能会有多个)</span><br><span class="line"></span><br><span class="line">内存管理机制</span><br><span class="line">在父子关系的空间中，可以通过关闭父控件以达到关闭所有该父控件下的子控件的效果</span><br></pre></td></tr></table></figure><h2 id="qss"><a href="#qss" class="headerlink" title="qss"></a>qss</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">qss与css很相，他的组成部分可以由三部分组成</span><br><span class="line">控件名称 + # + 控件id + [&quot;属性名&quot;]</span><br><span class="line">eg:</span><br><span class="line">QPushButton#test[&quot;&quot;]</span><br></pre></td></tr></table></figure><p>示例</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">from PyQt5.Qt import *</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">app &#x3D; QApplication(sys.argv)</span><br><span class="line">print(sys.argv)  # 接受命令行传递过来的参数，去执行对应的命令</span><br><span class="line"></span><br><span class="line">window &#x3D; QWidget()</span><br><span class="line">window.setWindowTitle(&quot;QAQ&quot;)</span><br><span class="line">window.resize(500, 500)</span><br><span class="line">window.move(400, 200)</span><br><span class="line"></span><br><span class="line">label &#x3D; QLabel(window)</span><br><span class="line">label.setText(&quot;hello world&quot;)</span><br><span class="line">label.move(200, 200)</span><br><span class="line"></span><br><span class="line">window.show()</span><br><span class="line"></span><br><span class="line">sys.exit(app.exec_())  # app.exec_,启动事件循环。直到程序接收到对应的退出码后才会退出</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;QObject&quot;&gt;&lt;a href=&quot;#QObject&quot; class=&quot;headerlink&quot; title=&quot;QObject&quot;&gt;&lt;/a&gt;QObject&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=</summary>
+      
     
     
     
