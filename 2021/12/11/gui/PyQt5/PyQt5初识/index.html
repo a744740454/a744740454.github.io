@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SadnessPineapple | SadnessPineapple</title><meta name="author" content="Sadness Pineapple"><meta name="copyright" content="Sadness Pineapple"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="QObject123456789101112所有控件的基类设置了一些通用与基础的方法method:	parent:		获取该对象的父控件(只有一个)	children:		获取该对象的子控件(可能会有多个)内存管理机制在父子关系的空间中，可以通过关闭父控件以达到关闭所有该父控件下的子控件的效果 qss1234qss与css很相，他的组成部分可以由三部分组成控件名称 + # + 控件id + [&amp;q">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SadnessPineapple">
+<meta property="og:url" content="https://a744740454.github.io/2021/12/11/gui/PyQt5/PyQt5%E5%88%9D%E8%AF%86/index.html">
+<meta property="og:site_name" content="SadnessPineapple">
+<meta property="og:description" content="QObject123456789101112所有控件的基类设置了一些通用与基础的方法method:	parent:		获取该对象的父控件(只有一个)	children:		获取该对象的子控件(可能会有多个)内存管理机制在父子关系的空间中，可以通过关闭父控件以达到关闭所有该父控件下的子控件的效果 qss1234qss与css很相，他的组成部分可以由三部分组成控件名称 + # + 控件id + [&amp;q">
+<meta property="og:locale">
+<meta property="og:image" content="https://i.loli.net/2021/01/15/xMg5KWYrvtDi1dI.jpg">
+<meta property="article:published_time" content="2021-12-11T11:25:23.544Z">
+<meta property="article:modified_time" content="2021-12-11T13:55:38.227Z">
+<meta property="article:author" content="Sadness Pineapple">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/01/15/xMg5KWYrvtDi1dI.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://a744740454.github.io/2021/12/11/gui/PyQt5/PyQt5%E5%88%9D%E8%AF%86/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+const saveToLocal = {
+  // ttl 單位是 天
+  set: function setWithExpiry(key, value, ttl) {
+    if (ttl === 0) return
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-12-11 21:55:38'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/flink.min.css"><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="SadnessPineapple" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://i.loli.net/2021/01/15/UCfNhvRid3xIVzS.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">48</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">25</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2021/01/15/xMg5KWYrvtDi1dI.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">SadnessPineapple</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">No title</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-12-11T11:25:23.544Z" title="Created 2021-12-11 19:25:23">2021-12-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-12-11T13:55:38.227Z" title="Updated 2021-12-11 21:55:38">2021-12-11</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="QObject"><a href="#QObject" class="headerlink" title="QObject"></a>QObject</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">所有控件的基类</span><br><span class="line">设置了一些通用与基础的方法</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">method:</span><br><span class="line">	parent:</span><br><span class="line">		获取该对象的父控件(只有一个)</span><br><span class="line">	children:</span><br><span class="line">		获取该对象的子控件(可能会有多个)</span><br><span class="line"></span><br><span class="line">内存管理机制</span><br><span class="line">在父子关系的空间中，可以通过关闭父控件以达到关闭所有该父控件下的子控件的效果</span><br></pre></td></tr></table></figure>
+<h2 id="qss"><a href="#qss" class="headerlink" title="qss"></a>qss</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">qss与css很相，他的组成部分可以由三部分组成</span><br><span class="line">控件名称 + # + 控件id + [&quot;属性名&quot;]</span><br><span class="line">eg:</span><br><span class="line">	QPushButton#test[&quot;&quot;]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">from PyQt5.Qt import *</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">app &#x3D; QApplication(sys.argv)</span><br><span class="line">print(sys.argv)  # 接受命令行传递过来的参数，去执行对应的命令</span><br><span class="line"></span><br><span class="line">window &#x3D; QWidget()</span><br><span class="line">window.setWindowTitle(&quot;QAQ&quot;)</span><br><span class="line">window.resize(500, 500)</span><br><span class="line">window.move(400, 200)</span><br><span class="line"></span><br><span class="line">label &#x3D; QLabel(window)</span><br><span class="line">label.setText(&quot;hello world&quot;)</span><br><span class="line">label.move(200, 200)</span><br><span class="line"></span><br><span class="line">window.show()</span><br><span class="line"></span><br><span class="line">sys.exit(app.exec_())  # app.exec_,启动事件循环。直到程序接收到对应的退出码后才会退出</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</article><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/01/15/xMg5KWYrvtDi1dI.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/01/15/Vue%E5%AD%A6%E4%B9%A0/var-let/"><img class="prev-cover" src="https://i.loli.net/2021/01/15/xMg5KWYrvtDi1dI.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/2021/11/28/python%E6%A8%A1%E5%9D%97/pylint/pylint/"><img class="next-cover" src="https://i.loli.net/2021/01/15/kKUe1IaFhsAfwDP.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">pylint</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://i.loli.net/2021/01/15/UCfNhvRid3xIVzS.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Sadness Pineapple</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">88</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">48</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">25</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">This is sadnesspineapple blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#QObject"><span class="toc-number">1.</span> <span class="toc-text">QObject</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#qss"><span class="toc-number">2.</span> <span class="toc-text">qss</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/01/16/Vue%E5%AD%A6%E4%B9%A0/webpack/" title="No title"><img src="https://i.loli.net/2021/01/15/J2Iy8knZYM5iQXA.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/2022/01/16/Vue%E5%AD%A6%E4%B9%A0/webpack/" title="No title">No title</a><time datetime="2022-01-16T02:36:06.782Z" title="Created 2022-01-16 10:36:06">2022-01-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/15/Vue%E5%AD%A6%E4%B9%A0/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/" title="No title"><img src="https://i.loli.net/2021/01/15/lNVkumjp6IiHGAr.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/2022/01/15/Vue%E5%AD%A6%E4%B9%A0/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/" title="No title">No title</a><time datetime="2022-01-15T10:17:08.848Z" title="Created 2022-01-15 18:17:08">2022-01-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/15/Vue%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E4%B8%8E%E7%9B%91%E5%90%AC%E5%B1%9E%E6%80%A7/" title="No title"><img src="https://i.loli.net/2021/01/15/J2Iy8knZYM5iQXA.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/2022/01/15/Vue%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E4%B8%8E%E7%9B%91%E5%90%AC%E5%B1%9E%E6%80%A7/" title="No title">No title</a><time datetime="2022-01-15T09:32:52.348Z" title="Created 2022-01-15 17:32:52">2022-01-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/15/Vue%E5%AD%A6%E4%B9%A0/Vue%E7%BB%84%E4%BB%B6/" title="Vue组件"><img src="https://i.loli.net/2021/01/15/kKUe1IaFhsAfwDP.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue组件"/></a><div class="content"><a class="title" href="/2022/01/15/Vue%E5%AD%A6%E4%B9%A0/Vue%E7%BB%84%E4%BB%B6/" title="Vue组件">Vue组件</a><time datetime="2022-01-15T09:32:52.345Z" title="Created 2022-01-15 17:32:52">2022-01-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/15/Vue%E5%AD%A6%E4%B9%A0/vue%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" title="vue基本语法"><img src="https://i.loli.net/2021/01/15/kKUe1IaFhsAfwDP.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vue基本语法"/></a><div class="content"><a class="title" href="/2022/01/15/Vue%E5%AD%A6%E4%B9%A0/vue%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" title="vue基本语法">vue基本语法</a><time datetime="2022-01-15T09:32:52.342Z" title="Created 2022-01-15 17:32:52">2022-01-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Sadness Pineapple</div><div class="footer_custom_text">浙ICP备2021002618号</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/js/hideMobileSidebar.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
