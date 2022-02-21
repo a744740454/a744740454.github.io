@@ -6,7 +6,7 @@
   <link href="https://a744740454.github.io/atom.xml" rel="self"/>
   
   <link href="https://a744740454.github.io/"/>
-  <updated>2022-01-16T04:40:45.936Z</updated>
+  <updated>2022-02-21T10:38:34.264Z</updated>
   <id>https://a744740454.github.io/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://a744740454.github.io/2022/02/21/Vue%E5%AD%A6%E4%B9%A0/vue3/setup%E7%9A%84%E5%88%9D%E8%AF%86/"/>
+    <id>https://a744740454.github.io/2022/02/21/Vue%E5%AD%A6%E4%B9%A0/vue3/setup%E7%9A%84%E5%88%9D%E8%AF%86/</id>
+    <published>2022-02-21T09:27:28.770Z</published>
+    <updated>2022-02-21T10:38:34.264Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="setup的初识"><a href="#setup的初识" class="headerlink" title="setup的初识"></a>setup的初识</h2><h3 id="数据绑定vue2的写法"><a href="#数据绑定vue2的写法" class="headerlink" title="数据绑定vue2的写法"></a>数据绑定vue2的写法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure><h3 id="vue3的写法"><a href="#vue3的写法" class="headerlink" title="vue3的写法"></a>vue3的写法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;setup的初识&quot;&gt;&lt;a href=&quot;#setup的初识&quot; class=&quot;headerlink&quot; title=&quot;setup的初识&quot;&gt;&lt;/a&gt;setup的初识&lt;/h2&gt;&lt;h3 id=&quot;数据绑定vue2的写法&quot;&gt;&lt;a href=&quot;#数据绑定vue2的写法&quot; class</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://a744740454.github.io/2022/02/21/Vue%E5%AD%A6%E4%B9%A0/vue3/vue3/"/>
+    <id>https://a744740454.github.io/2022/02/21/Vue%E5%AD%A6%E4%B9%A0/vue3/vue3/</id>
+    <published>2022-02-21T09:13:59.882Z</published>
+    <updated>2022-02-21T09:26:57.966Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="vue3安装与初识"><a href="#vue3安装与初识" class="headerlink" title="vue3安装与初识"></a>vue3安装与初识</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">安装vue3</span><br><span class="line"></span><br><span class="line">1.脚手架方式安装</span><br><span class="line">命令</span><br><span class="line">npm install -g @vue&#x2F;cli</span><br><span class="line">vue --version</span><br><span class="line">vue create 项目名</span><br><span class="line"></span><br><span class="line">2.使用vite创建</span><br><span class="line">特定:</span><br><span class="line">1.快速的冷启动</span><br><span class="line">2.即时的热模块更新,替换性能和模块的解耦让更新飞起</span><br><span class="line">3.真正的按需编译，不再等待整个应用编译完成</span><br><span class="line">命令:</span><br><span class="line">npm init vite-app 项目名</span><br><span class="line">cd 项目名</span><br><span class="line">npm install</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure><h3 id="App-vue代码"><a href="#App-vue代码" class="headerlink" title="App.vue代码"></a>App.vue代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;!-- Vue2中的html必须要有一对根标签，Vue3组件的html模板中可以没有根标签 --&gt;</span><br><span class="line">  &lt;img alt&#x3D;&quot;Vue logo&quot; src&#x3D;&quot;.&#x2F;assets&#x2F;logo.png&quot;&gt;</span><br><span class="line">  &lt;HelloWorld msg&#x3D;&quot;Welcome to Your Vue.js App&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">&#x2F;&#x2F;引入一个子级组件</span><br><span class="line">import HelloWorld from &#39;.&#x2F;components&#x2F;HelloWorld.vue&#39;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;暴露出去一个定义好的组件</span><br><span class="line">export default &#123;</span><br><span class="line">  &#x2F;&#x2F;当前组件的名称是App</span><br><span class="line">  name: &#39;App&#39;,</span><br><span class="line">  &#x2F;&#x2F;注册组件</span><br><span class="line">  components: &#123;</span><br><span class="line">    &#x2F;&#x2F;注册一个子级组件</span><br><span class="line">    HelloWorld</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">#app &#123;</span><br><span class="line">  font-family: Avenir, Helvetica, Arial, sans-serif;</span><br><span class="line">  -webkit-font-smoothing: antialiased;</span><br><span class="line">  -moz-osx-font-smoothing: grayscale;</span><br><span class="line">  text-align: center;</span><br><span class="line">  color: #2c3e50;</span><br><span class="line">  margin-top: 60px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;vue3安装与初识&quot;&gt;&lt;a href=&quot;#vue3安装与初识&quot; class=&quot;headerlink&quot; title=&quot;vue3安装与初识&quot;&gt;&lt;/a&gt;vue3安装与初识&lt;/h2&gt;&lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; </summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -422,54 +462,6 @@
       
       
     <summary type="html">&lt;h2 id=&quot;docker安装教程-centos&quot;&gt;&lt;a href=&quot;#docker安装教程-centos&quot; class=&quot;headerlink&quot; title=&quot;docker安装教程(centos)&quot;&gt;&lt;/a&gt;docker安装教程(centos)&lt;/h2&gt;&lt;figure cla</summary>
-      
-    
-    
-    
-    <category term="docker" scheme="https://a744740454.github.io/categories/docker/"/>
-    
-    
-    <category term="docker" scheme="https://a744740454.github.io/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>docker简介</title>
-    <link href="https://a744740454.github.io/2021/08/15/docker/docker%E7%AE%80%E4%BB%8B/"/>
-    <id>https://a744740454.github.io/2021/08/15/docker/docker%E7%AE%80%E4%BB%8B/</id>
-    <published>2021-08-15T15:32:16.123Z</published>
-    <updated>2021-08-15T15:32:16.603Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="docker简介"><a href="#docker简介" class="headerlink" title="docker简介"></a>docker简介</h2><h3 id="docker历史简述"><a href="#docker历史简述" class="headerlink" title="docker历史简述"></a>docker历史简述</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在2010年得时候，几个年轻人凑到一块开了一个公司。公司名字是dotcloud.这个公司得主要技术点就是linux得容器技术，为了方便管理这些容器。该公司内部开开发得内部工具名字就是docker。</span><br><span class="line">但是由于该公司开始得时候业务并不是很景气，但是他们又不想放弃该技术。因此他们选择在2013年将docker开源。也因此越来越多得人开始使用docker。然后发现docker得好用之处，docker也因此变得红火起来</span><br></pre></td></tr></table></figure><h3 id="docker特点"><a href="#docker特点" class="headerlink" title="docker特点"></a>docker特点</h3><p>docker是用go语言进行得开发，然后使用得技术是容器化。</p><p>在docker之前我们使用得技术一般是虚拟机技术</p><h3 id="容器化技术与虚拟机技术得区别"><a href="#容器化技术与虚拟机技术得区别" class="headerlink" title="容器化技术与虚拟机技术得区别"></a>容器化技术与虚拟机技术得区别</h3><p>虚拟机技术</p><p><img src="https://gitee.com/a744740454/mypic/raw/master/img/20210602195328.jpg" alt="1622634522(1)"></p><p>容器化技术</p><p><img src="https://gitee.com/a744740454/mypic/raw/master/img/20210602200910.jpg" alt="1622635727(1)"></p><p>由上面两图可以得知容器化技术相较于虚拟化技术，使用得是同一个计算机得内核，也正因为如此，容器化技术与虚拟机技术相比而言会小很多</p><h3 id="docker优点"><a href="#docker优点" class="headerlink" title="docker优点"></a>docker优点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.应用更快速得交付和部署</span><br><span class="line">打包镜像发布测试，一键运行</span><br><span class="line">2.更便捷得升级和扩缩容</span><br><span class="line">项目打包为一个镜像，扩展 服务器a</span><br><span class="line">3.更简单得系统运维</span><br><span class="line">容器化之后，开发，测试环境高度一致</span><br><span class="line">4.更高效得计算资源利用</span><br><span class="line">是内核级别得虚拟化，可以在一个物理机上运行很多得容器实例</span><br></pre></td></tr></table></figure><h3 id="docker各个项目地址"><a href="#docker各个项目地址" class="headerlink" title="docker各个项目地址"></a>docker各个项目地址</h3><p>docker社区地址:<a href="https://hub.docker.com/">https://hub.docker.com/</a></p><p>docker官网地址:<a href="https://www.docker.com/">https://www.docker.com/</a></p><p>docker文档地址:<a href="https://docs.docker.com/">https://docs.docker.com/</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;docker简介&quot;&gt;&lt;a href=&quot;#docker简介&quot; class=&quot;headerlink&quot; title=&quot;docker简介&quot;&gt;&lt;/a&gt;docker简介&lt;/h2&gt;&lt;h3 id=&quot;docker历史简述&quot;&gt;&lt;a href=&quot;#docker历史简述&quot; class=&quot;</summary>
-      
-    
-    
-    
-    <category term="docker" scheme="https://a744740454.github.io/categories/docker/"/>
-    
-    
-    <category term="docker" scheme="https://a744740454.github.io/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>docker镜像基础操作</title>
-    <link href="https://a744740454.github.io/2021/08/15/docker/docker%E9%95%9C%E5%83%8F%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/"/>
-    <id>https://a744740454.github.io/2021/08/15/docker/docker%E9%95%9C%E5%83%8F%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/</id>
-    <published>2021-08-15T15:32:16.027Z</published>
-    <updated>2021-08-15T15:32:16.485Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="docker镜像基础操作"><a href="#docker镜像基础操作" class="headerlink" title="docker镜像基础操作"></a>docker镜像基础操作</h2><h3 id="镜像获取"><a href="#镜像获取" class="headerlink" title="镜像获取"></a>镜像获取</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">镜像获取</span><br><span class="line">docker pull [image_name][:image_version]</span><br><span class="line">eg:</span><br><span class="line">docker pull nginx:1.17</span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="查看镜像信息"><a href="#查看镜像信息" class="headerlink" title="查看镜像信息"></a>查看镜像信息</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看本地主机上已有的镜像的基本信息</span></span><br><span class="line">docker images</span><br><span class="line">docker images ls</span><br><span class="line">REPOSITORY   TAG     IMAGE ID      CREATED      SIZE</span><br><span class="line">镜像来源     镜像标签     镜像<span class="built_in">id</span>      镜像创建时间   镜像大小</span><br><span class="line"></span><br><span class="line">参数:</span><br><span class="line">-a:列出所有(包括临时文件)镜像文件</span><br><span class="line">-q:仅显示 ID 信息</span><br><span class="line">--digests=true|false：列出镜像的数字摘要值</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看镜像详细信息，可以看到作者、id等</span></span><br><span class="line">docker inspect [REPOSITORY]</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看镜像历史,若构建信息过长，可以使用--no-trunc来输出完整信息</span></span><br><span class="line">docker history [REPOSITORY]</span><br></pre></td></tr></table></figure><h3 id="镜像添加tag"><a href="#镜像添加tag" class="headerlink" title="镜像添加tag"></a>镜像添加tag</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">镜像添加tag</span><br><span class="line">docker tag redis:latest myredis:latest</span><br><span class="line"></span><br><span class="line">REPOSITORY   TAG     IMAGE ID       CREATED        SIZE </span><br><span class="line">redis        latest  74d107221092   19 hours ago   104MB</span><br></pre></td></tr></table></figure><h3 id="搜索镜像"><a href="#搜索镜像" class="headerlink" title="搜索镜像"></a>搜索镜像</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker search [option] keyword</span><br><span class="line">option:</span><br><span class="line">-f:过滤输出内容 <span class="keyword">is</span>-official=true/false stars=<span class="number">800</span>(收藏数超过<span class="number">8000</span>)</span><br><span class="line">--limit:限制<span class="number">3</span>条</span><br><span class="line">--no-trunc:不截断输出结果,有些输出结果过长的话会被截断，添加这个可以看到完整的信息</span><br><span class="line"></span><br><span class="line">输出参数释义</span><br><span class="line">NAME         DESCRIPTION    STARS    OFFICIAL    AUTOMATED</span><br><span class="line">镜像名称       镜像描述        点赞数    是否是官方    自动构建</span><br></pre></td></tr></table></figure><h3 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker rmi [option] [name]</span><br><span class="line">docker image rm [option] [name]</span><br><span class="line">参数:</span><br><span class="line">-f:强制</span><br><span class="line"></span><br><span class="line">docker image prune [option] <span class="comment">#清理镜像</span></span><br><span class="line">-a:删除所有不用的镜像，不加的话是删除临时镜像</span><br><span class="line">-f:强制删除，没有提示</span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h3><p>构建镜像的方式有三种，基于容器导入、基于本地模板导入、基于dockerfile创建</p><h4 id="基于容器导入（commit）"><a href="#基于容器导入（commit）" class="headerlink" title="基于容器导入（commit）"></a>基于容器导入（commit）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker commit [option] [container id] [image:tag]</span><br><span class="line">eg:docker commit -m &quot;Add a file&quot; -a &quot;Alvin&quot; 820a17fe3935 centos:v1</span><br><span class="line">option:</span><br><span class="line">-a:作者信息</span><br><span class="line">-m:提交信息</span><br><span class="line">-p:提交时，暂停容器运行</span><br><span class="line"></span><br><span class="line">执行命令后会在本地生成一个基于原先容器的镜像</span><br></pre></td></tr></table></figure><h4 id="将容器导出并保存为镜像-export"><a href="#将容器导出并保存为镜像-export" class="headerlink" title="将容器导出并保存为镜像(export)"></a>将容器导出并保存为镜像(export)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker export [container id] &gt; file</span><br><span class="line">eg:</span><br><span class="line">docker export daf9c3656be3 &gt; nginx.tar</span><br><span class="line"></span><br><span class="line">ps:使用export命令导出的是个压缩包，且只保存容器当时的状态</span><br></pre></td></tr></table></figure><h4 id="从包中读取镜像-import"><a href="#从包中读取镜像-import" class="headerlink" title="从包中读取镜像(import)"></a>从包中读取镜像(import)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">对应export的读取</span><br><span class="line">docker import file image:tag</span><br><span class="line">eg:</span><br><span class="line">docker import nginx.tar nginx:v1</span><br></pre></td></tr></table></figure><h4 id="将本地的镜像保存为镜像包-save"><a href="#将本地的镜像保存为镜像包-save" class="headerlink" title="将本地的镜像保存为镜像包(save)"></a>将本地的镜像保存为镜像包(save)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker save [REPOSITORY]&#x2F;[image_id] &gt; file</span><br><span class="line">eg:</span><br><span class="line">    docker save nginx &gt; nginx.tar</span><br><span class="line">    docker save 62d49f9bab67 &gt; nginx.tar</span><br><span class="line">    </span><br><span class="line">将本地的多个镜像保存为镜像包</span><br><span class="line">docker save [image] [image] &gt; file</span><br><span class="line">docker save -o file [image] [image]</span><br></pre></td></tr></table></figure><h4 id="从包中加载镜像-load"><a href="#从包中加载镜像-load" class="headerlink" title="从包中加载镜像(load)"></a>从包中加载镜像(load)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">对应save的读取</span><br><span class="line">docker load &lt; file</span><br></pre></td></tr></table></figure><h4 id="save与export区别"><a href="#save与export区别" class="headerlink" title="save与export区别"></a>save与export区别</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">export导出的是容器打包</span><br><span class="line">save 是将镜像打包成包</span><br><span class="line"></span><br><span class="line">export因为是保存的容器当时的状态，因此体积会小于save,相应的会丢失到容器的元数据和以前的历史记录</span><br><span class="line">save会完整的保存</span><br><span class="line"></span><br><span class="line">export 不能将多个容器打包</span><br><span class="line">save 可以将多个包打包</span><br><span class="line"></span><br><span class="line">export 一般用来制作基础镜像:如我们从一个 ubuntu 镜像启动一个容器，然后安 装一些软件和进行一些设置后，使用 docker export 保存为一个基础镜像。然后，把这个镜像分发给其他人使用， 比如作为基础的开发环境</span><br><span class="line"></span><br><span class="line">save 一般用于不能连接外网的情况下，将本地的镜像打包，给别的机器使用</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;docker镜像基础操作&quot;&gt;&lt;a href=&quot;#docker镜像基础操作&quot; class=&quot;headerlink&quot; title=&quot;docker镜像基础操作&quot;&gt;&lt;/a&gt;docker镜像基础操作&lt;/h2&gt;&lt;h3 id=&quot;镜像获取&quot;&gt;&lt;a href=&quot;#镜像获取&quot; cla</summary>
       
     
     
