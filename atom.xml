@@ -6,7 +6,7 @@
   <link href="https://a744740454.github.io/atom.xml" rel="self"/>
   
   <link href="https://a744740454.github.io/"/>
-  <updated>2022-06-14T06:01:14.432Z</updated>
+  <updated>2022-06-14T06:42:55.945Z</updated>
   <id>https://a744740454.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysql存储引擎</title>
+    <link href="https://a744740454.github.io/2022/06/14/mysql/mysql%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/"/>
+    <id>https://a744740454.github.io/2022/06/14/mysql/mysql%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/</id>
+    <published>2022-06-14T06:05:12.195Z</published>
+    <updated>2022-06-14T06:42:55.945Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="mysql存储引擎"><a href="#mysql存储引擎" class="headerlink" title="mysql存储引擎"></a>mysql存储引擎</h2><h3 id="存储引擎介绍"><a href="#存储引擎介绍" class="headerlink" title="存储引擎介绍"></a>存储引擎介绍</h3><h3 id="innodb"><a href="#innodb" class="headerlink" title="innodb"></a>innodb</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">innoDB是一种兼顾了高可靠性和高性能的通用存储引擎。在5.7和8.0版本中，innodb是默认的mysql存储引擎。在创建表的时候如果不指定存储引擎，默认就是指定的innodb作为存储引擎</span><br><span class="line"></span><br><span class="line">innodb存储引擎支持事务，设计目标主要面向在线事务处理OLTP的应用，其特点是行锁设计，支持外键，并且类似于Oracle的非锁定读，即默认读取操作不会产生锁，5.58后成为默认引擎</span><br><span class="line">innodb使用MVCC(多版本并发)控制来获得高并发性，并且实现了sql标准的4种隔离级别</span><br><span class="line">innodb还提供了插入缓冲，二次写，自适应哈希索引，预读等实用功能</span><br><span class="line">innodb采用聚集索引的方式，每张表的存储都是按照主键的顺序进行存放</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">PS:</span><br><span class="line">OLTP:</span><br><span class="line"></span><br><span class="line">MVCC</span><br><span class="line"></span><br><span class="line">插入缓冲</span><br><span class="line"></span><br><span class="line">二次写</span><br><span class="line"></span><br><span class="line">自适应哈希索引</span><br><span class="line"></span><br><span class="line">预读</span><br><span class="line"></span><br><span class="line">聚集索引</span><br></pre></td></tr></table></figure><h3 id="查看存储引擎的版本"><a href="#查看存储引擎的版本" class="headerlink" title="查看存储引擎的版本"></a>查看存储引擎的版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select @@innodb_version;</span><br></pre></td></tr></table></figure><h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><h3 id="OLTP"><a href="#OLTP" class="headerlink" title="OLTP"></a>OLTP</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">OLTP(Online Transaction Processing): 联机事务处理 是专注于面向事务的数据处理，通常涉及在数据库中插入，更新或删除少量数据，主要是处理大量用户下的大量事务.</span><br><span class="line"></span><br><span class="line">简单来说就是支持事务，保证数据的一致性</span><br><span class="line"></span><br><span class="line">OLTP的应用--&gt;指支持事务的系统</span><br></pre></td></tr></table></figure><h3 id="MVCC"><a href="#MVCC" class="headerlink" title="MVCC"></a>MVCC</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MVCC(Multi-Version Concurrency Control) 多版本并发控制，主要是为了提高数据库的并发性能</span><br><span class="line"></span><br><span class="line">在遇到一行数据发生读写请求时，一般的处理方式是上锁阻塞住，但MVCC则采用了另外的方式去做，让读写发生冲突的时候不用加锁。</span><br></pre></td></tr></table></figure><a href="#">Post not found: 数据库约束</a><p>插入缓冲</p><p>二次写</p><p>自适应哈希索引</p><p>预读</p><p>聚集索引</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;mysql存储引擎&quot;&gt;&lt;a href=&quot;#mysql存储引擎&quot; class=&quot;headerlink&quot; title=&quot;mysql存储引擎&quot;&gt;&lt;/a&gt;mysql存储引擎&lt;/h2&gt;&lt;h3 id=&quot;存储引擎介绍&quot;&gt;&lt;a href=&quot;#存储引擎介绍&quot; class=&quot;head</summary>
+      
+    
+    
+    
+    <category term="mysql" scheme="https://a744740454.github.io/categories/mysql/"/>
+    
+    
+    <category term="mysql" scheme="https://a744740454.github.io/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>列约束及属性</title>
@@ -438,26 +462,6 @@
     <category term="vue" scheme="https://a744740454.github.io/tags/vue/"/>
     
     <category term="前端" scheme="https://a744740454.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://a744740454.github.io/2022/01/15/Vue%E5%AD%A6%E4%B9%A0/var-let/"/>
-    <id>https://a744740454.github.io/2022/01/15/Vue%E5%AD%A6%E4%B9%A0/var-let/</id>
-    <published>2022-01-15T09:32:52.334Z</published>
-    <updated>2022-01-15T09:42:57.693Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="var-let"><a href="#var-let" class="headerlink" title="var/let"></a>var/let</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var在设计上是有缺陷的，为了弥补这个缺陷，在ES6中推出了let关键字去弥补这个缺陷。</span><br></pre></td></tr></table></figure><h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var没有块级作用域，在&#123;&#125;内定义的变量可以全局使用，容易造成变量污染。</span><br></pre></td></tr></table></figure><h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let可以让定义的变量在函数内有块级作用域的概念，不会影响到别的函数</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;var-let&quot;&gt;&lt;a href=&quot;#var-let&quot; class=&quot;headerlink&quot; title=&quot;var/let&quot;&gt;&lt;/a&gt;var/let&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=</summary>
-      
-    
-    
-    
     
   </entry>
   
