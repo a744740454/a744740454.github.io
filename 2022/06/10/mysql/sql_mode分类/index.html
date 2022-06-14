@@ -1,0 +1,207 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>sql_mode分类 | SadnessPineapple</title><meta name="keywords" content="mysql"><meta name="author" content="Sadness Pineapple"><meta name="copyright" content="Sadness Pineapple"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="sql_mode   SQL_MODE Comments    ONLY_FULL_GROUP_BY 对于group by聚合操作，如果在select中的列，having或者order by子句的列，没有在group by中出现，那么这个SQL是不合法的。   STRICT_TRANS_TABLES STRICT_TRANS_TABLES模式: 严格模式，进行数据的严格校验，错误输入不能被插入。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sql_mode分类">
+<meta property="og:url" content="https://a744740454.github.io/2022/06/10/mysql/sql_mode%E5%88%86%E7%B1%BB/index.html">
+<meta property="og:site_name" content="SadnessPineapple">
+<meta property="og:description" content="sql_mode   SQL_MODE Comments    ONLY_FULL_GROUP_BY 对于group by聚合操作，如果在select中的列，having或者order by子句的列，没有在group by中出现，那么这个SQL是不合法的。   STRICT_TRANS_TABLES STRICT_TRANS_TABLES模式: 严格模式，进行数据的严格校验，错误输入不能被插入。">
+<meta property="og:locale">
+<meta property="og:image" content="https://i.loli.net/2021/01/15/xMg5KWYrvtDi1dI.jpg">
+<meta property="article:published_time" content="2022-06-10T09:06:42.824Z">
+<meta property="article:modified_time" content="2022-06-14T06:02:17.830Z">
+<meta property="article:author" content="Sadness Pineapple">
+<meta property="article:tag" content="mysql">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/01/15/xMg5KWYrvtDi1dI.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://a744740454.github.io/2022/06/10/mysql/sql_mode%E5%88%86%E7%B1%BB/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+const saveToLocal = {
+  // ttl 單位是 天
+  set: function setWithExpiry(key, value, ttl) {
+    if (ttl === 0) return
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-06-14 14:02:17'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/flink.min.css"><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="SadnessPineapple" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://i.loli.net/2021/01/15/UCfNhvRid3xIVzS.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">100</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">48</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">25</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2021/01/15/xMg5KWYrvtDi1dI.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">SadnessPineapple</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">sql_mode分类</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-06-10T09:06:42.824Z" title="Created 2022-06-10 17:06:42">2022-06-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-06-14T06:02:17.830Z" title="Updated 2022-06-14 14:02:17">2022-06-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/mysql/">mysql</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="sql-mode"><a href="#sql-mode" class="headerlink" title="sql_mode"></a>sql_mode</h2><table>
+<thead>
+<tr>
+<th><strong>SQL_MODE</strong></th>
+<th><strong>Comments</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ONLY_FULL_GROUP_BY</td>
+<td>对于group by聚合操作，如果在select中的列，having或者order by子句的列，没有在group by中出现，那么这个SQL是不合法的。</td>
+</tr>
+<tr>
+<td>STRICT_TRANS_TABLES</td>
+<td>STRICT_TRANS_TABLES模式: 严格模式，进行数据的严格校验，错误输入不能被插入。</td>
+</tr>
+<tr>
+<td>NO_ZERO_IN_DATE</td>
+<td>在严格模式下，不接受月或者日部分为0的日期</td>
+</tr>
+<tr>
+<td>NO_ZERO_DATE</td>
+<td>在严格模式下，不要将0000-00-00作为合法日期。</td>
+</tr>
+<tr>
+<td>ERROR_FOR_DIVISION_BY_ZERO</td>
+<td>在严格模式下，insert或update过程中，如果被0除则产生错误。</td>
+</tr>
+<tr>
+<td>NO_ENGINE_SUBSTITUTION</td>
+<td>如果需要的存储引擎被禁用或未编译，那么抛出错误</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/mysql/">mysql</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/01/15/xMg5KWYrvtDi1dI.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/06/10/mysql/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B1%BB%E5%9E%8B/"><img class="prev-cover" src="https://i.loli.net/2021/01/15/kKUe1IaFhsAfwDP.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">数据库类型</div></div></a></div><div class="next-post pull-right"><a href="/2022/06/10/mysql/%E7%94%A8%E6%88%B7%E5%8F%8A%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86/"><img class="next-cover" src="https://i.loli.net/2021/01/15/lNVkumjp6IiHGAr.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">用户及安全管理</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2021/03/03/mysql/脏读、幻读、不可重复读/" title="脏读、不可重复读、幻读"><img class="cover" src="https://i.loli.net/2021/01/15/l2huGSOCq6IY985.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-03</div><div class="title">脏读、不可重复读、幻读</div></div></a></div><div><a href="/2022/06/09/mysql/mysql 安装/" title="mysql安装"><img class="cover" src="https://i.loli.net/2021/01/15/xMg5KWYrvtDi1dI.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-09</div><div class="title">mysql安装</div></div></a></div><div><a href="/2022/06/09/mysql/mysql体系介绍/" title="mysql体系介绍"><img class="cover" src="https://i.loli.net/2021/01/15/3px1TfQY9DnGNEe.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-09</div><div class="title">mysql体系介绍</div></div></a></div><div><a href="/2022/06/13/mysql/列约束及属性/" title="列约束及属性"><img class="cover" src="https://i.loli.net/2021/01/15/kKUe1IaFhsAfwDP.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-13</div><div class="title">列约束及属性</div></div></a></div><div><a href="/2022/06/10/mysql/数据库类型/" title="数据库类型"><img class="cover" src="https://i.loli.net/2021/01/15/kKUe1IaFhsAfwDP.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-10</div><div class="title">数据库类型</div></div></a></div><div><a href="/2022/06/10/mysql/用户及安全管理/" title="用户及安全管理"><img class="cover" src="https://i.loli.net/2021/01/15/lNVkumjp6IiHGAr.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-10</div><div class="title">用户及安全管理</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://i.loli.net/2021/01/15/UCfNhvRid3xIVzS.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Sadness Pineapple</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">100</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">48</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">25</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">This is sadnesspineapple blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sql-mode"><span class="toc-number">1.</span> <span class="toc-text">sql_mode</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/06/13/mysql/%E5%88%97%E7%BA%A6%E6%9D%9F%E5%8F%8A%E5%B1%9E%E6%80%A7/" title="列约束及属性"><img src="https://i.loli.net/2021/01/15/kKUe1IaFhsAfwDP.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="列约束及属性"/></a><div class="content"><a class="title" href="/2022/06/13/mysql/%E5%88%97%E7%BA%A6%E6%9D%9F%E5%8F%8A%E5%B1%9E%E6%80%A7/" title="列约束及属性">列约束及属性</a><time datetime="2022-06-13T08:02:17.945Z" title="Created 2022-06-13 16:02:17">2022-06-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/10/mysql/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B1%BB%E5%9E%8B/" title="数据库类型"><img src="https://i.loli.net/2021/01/15/kKUe1IaFhsAfwDP.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据库类型"/></a><div class="content"><a class="title" href="/2022/06/10/mysql/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B1%BB%E5%9E%8B/" title="数据库类型">数据库类型</a><time datetime="2022-06-10T09:59:54.076Z" title="Created 2022-06-10 17:59:54">2022-06-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/10/mysql/sql_mode%E5%88%86%E7%B1%BB/" title="sql_mode分类"><img src="https://i.loli.net/2021/01/15/xMg5KWYrvtDi1dI.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="sql_mode分类"/></a><div class="content"><a class="title" href="/2022/06/10/mysql/sql_mode%E5%88%86%E7%B1%BB/" title="sql_mode分类">sql_mode分类</a><time datetime="2022-06-10T09:06:42.824Z" title="Created 2022-06-10 17:06:42">2022-06-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/10/mysql/%E7%94%A8%E6%88%B7%E5%8F%8A%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86/" title="用户及安全管理"><img src="https://i.loli.net/2021/01/15/lNVkumjp6IiHGAr.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="用户及安全管理"/></a><div class="content"><a class="title" href="/2022/06/10/mysql/%E7%94%A8%E6%88%B7%E5%8F%8A%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86/" title="用户及安全管理">用户及安全管理</a><time datetime="2022-06-10T08:11:07.259Z" title="Created 2022-06-10 16:11:07">2022-06-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/09/mysql/mysql%E4%BD%93%E7%B3%BB%E4%BB%8B%E7%BB%8D/" title="mysql体系介绍"><img src="https://i.loli.net/2021/01/15/3px1TfQY9DnGNEe.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="mysql体系介绍"/></a><div class="content"><a class="title" href="/2022/06/09/mysql/mysql%E4%BD%93%E7%B3%BB%E4%BB%8B%E7%BB%8D/" title="mysql体系介绍">mysql体系介绍</a><time datetime="2022-06-09T10:14:57.743Z" title="Created 2022-06-09 18:14:57">2022-06-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Sadness Pineapple</div><div class="footer_custom_text">浙ICP备2021002618号</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/js/hideMobileSidebar.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
